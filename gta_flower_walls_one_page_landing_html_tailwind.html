@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GTA Flower Wall Rentals | Elegant Nikkah Partition & Floral Wall Rental</title>
+  <meta name="description" content="Luxury floral wall partition rental for masjid nikkahs, weddings, and events across Toronto and the GTA. Setup and takedown included." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    /* Subtle grain */
+    .grain { position: relative; }
+    .grain:before {
+      content: "";
+      position: absolute; inset: 0; pointer-events: none; opacity: .08; mix-blend-mode: multiply;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".35"/></svg>');
+      background-size: 320px 320px;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <!-- Top bar -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <img src="./assets/logo.webp" alt="GTA Flower Wall Rentals Logo" class="h-10 w-10 rounded-xl object-cover" />
+        <span class="font-semibold tracking-tight">GTA Flower Wall Rentals</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#wall" class="hover:text-rose-600">The Wall</a>
+        <a href="#service" class="hover:text-rose-600">Service</a>
+        <a href="#pricing" class="hover:text-rose-600">Pricing</a>
+        <a href="#gallery" class="hover:text-rose-600">Gallery</a>
+        <a href="#contact" class="inline-flex items-center rounded-full bg-rose-600 px-4 py-2 text-white font-medium shadow hover:bg-rose-700">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 hover:bg-slate-50" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+          <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+        <div class="px-4 py-3 space-y-2">
+          <a href="#wall" class="block py-2">The Wall</a>
+          <a href="#service" class="block py-2">Service</a>
+          <a href="#pricing" class="block py-2">Pricing</a>
+          <a href="#gallery" class="block py-2">Gallery</a>
+          <a href="#contact" class="block py-2 font-medium text-rose-700">Contact</a>
+        </div>
+      </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative isolate grain">
+    <div class="absolute inset-0 bg-gradient-to-b from-rose-50 via-white to-white"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">Elegant Nikkah Partition & Floral Wall Rental</h1>
+        <p class="mt-4 text-lg text-slate-700 max-w-xl">A single signature piece. Crafted for masjid nikkahs, weddings, and refined events across the GTA. Setup and takedown included.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#contact" class="inline-flex items-center rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Contact us</a>
+          <a href="#gallery" class="inline-flex items-center rounded-full border border-slate-300 px-6 py-3 font-medium hover:bg-slate-50">See gallery</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-sm text-slate-600">
+          <div class="flex -space-x-2">
+            <span class="inline-flex h-7 w-7 rounded-full ring-2 ring-white bg-rose-200"></span>
+            <span class="inline-flex h-7 w-7 rounded-full ring-2 ring-white bg-pink-200"></span>
+            <span class="inline-flex h-7 w-7 rounded-full ring-2 ring-white bg-emerald-200"></span>
+          </div>
+          <p>Masjid friendly. Boutique service. Limited dates.</p>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200">
+          <!-- Replace src with your hosted image urls -->
+          <img src="./assets/nikkah-wall-hero.webp" alt="Luxury floral partition" class="h-full w-full object-cover" />
+        </div>
+        <div class="absolute -bottom-6 -left-6 hidden sm:block bg-white rounded-2xl shadow-lg ring-1 ring-slate-200 p-4">
+          <p class="text-sm font-semibold">White cascading florals with soft draping</p>
+          <p class="text-xs text-slate-600">Privacy partition and photo backdrop in one</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Wall -->
+  <section id="wall" class="py-16 lg:py-20 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="prose prose-slate max-w-none">
+          <h2 class="text-3xl font-bold tracking-tight !mb-6">The Wall</h2>
+          <ul class="grid sm:grid-cols-2 gap-3 list-none p-0">
+            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>White cascading floral backdrop with soft chiffon drape</span></li>
+            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>Pink and ivory floral accents along the top rail</span></li>
+            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>Acts as a privacy partition during the ceremony</span></li>
+            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>Doubles as a premium photo backdrop for portraits</span></li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <img src="./assets/nikkah-wall-room.webp" alt="Flower wall in event hall" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
+          <img src="./assets/nikkah-wall-masjid.webp" alt="Flower wall in masjid" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section id="service" class="py-16 lg:py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-1">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Stress free service</h2>
+          <p class="mt-3 text-slate-700">We run a tight setup so your day stays smooth and on time.</p>
+        </div>
+        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="font-semibold">Setup and takedown included</h3>
+            <p class="mt-1 text-slate-700">We arrive early, position the wall, secure draping, and clear everything after the event.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="font-semibold">Masjid friendly placement</h3>
+            <p class="mt-1 text-slate-700">Respectful spacing and clean footprints that keep the prayer hall neat.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="font-semibold">Toronto and GTA</h3>
+            <p class="mt-1 text-slate-700">Flexible delivery across the city with reliable arrival windows.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="font-semibold">Professional look</h3>
+            <p class="mt-1 text-slate-700">A boutique piece that upgrades both ceremony flow and photography.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold tracking-tight">Simple pricing</h2>
+      <p class="mt-2 text-slate-700">One premium wall. Clear rate. No hidden fees.</p>
+      <div class="mt-8 mx-auto max-w-2xl rounded-2xl border border-slate-200 p-8 shadow-sm">
+        <div class="flex items-end justify-center gap-2">
+          <span class="text-5xl font-extrabold">$250</span>
+          <span class="text-slate-600">per day</span>
+        </div>
+        <ul class="mt-6 space-y-2 text-left mx-auto max-w-md">
+          <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 flex-shrink-0"></span><span>Full setup and takedown</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 flex-shrink-0"></span><span>Delivery within Toronto and the GTA</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 flex-shrink-0"></span><span>Masjid friendly layout</span></li>
+        </ul>
+        <div class="mt-8">
+          <a href="#contact" class="inline-flex items-center rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Request your date</a>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-slate-600">Weekday and multi day rates available on request.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-16 lg:py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-center">Gallery</h2>
+      <p class="mt-2 text-slate-700 text-center">Real setups in halls and masjids across the GTA.</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <img src="./assets/nikkah-wall-hero.webp" alt="Flower wall close up" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
+        <img src="./assets/nikkah-wall-room.webp" alt="Flower wall and seating" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
+        <img src="./assets/nikkah-wall-masjid.webp" alt="Flower wall wide view" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Check availability</h2>
+          <p class="mt-2 text-slate-700">Tell us your date, venue, time window, and any special notes. We respond quickly.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <!-- Update mailto and phone -->
+            <a href="mailto:hello@gtaflowerwalls.com?subject=Booking%20Request" class="inline-flex items-center rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Email us</a>
+            <a href="tel:+16474712148" class="inline-flex items-center rounded-full border border-slate-300 px-6 py-3 font-medium hover:bg-slate-50">Call or text</a>
+          </div>
+          <p class="mt-4 text-sm text-slate-600">Limited dates each month to keep service standards high.</p>
+        </div>
+        <form class="rounded-2xl border border-slate-200 p-6 shadow-sm bg-white" onsubmit="handleSubmit(event)">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium">Name</label>
+              <input required type="text" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Email</label>
+              <input required type="email" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Phone</label>
+              <input type="tel" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Event date</label>
+              <input type="date" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-medium">Venue</label>
+              <input type="text" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" placeholder="Masjid or hall name" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-medium">Notes</label>
+              <textarea rows="4" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" placeholder="Arrival time, layout notes, access details"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="mt-4 w-full rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Send request</button>
+          <p id="formMsg" class="mt-3 text-sm text-emerald-700 hidden">Thanks. Your mail app will open with the details.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 py-8 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© <span id="year"></span> GTA Flower Walls. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="hover:text-rose-700">Contact</a>
+        <a href="#pricing" class="hover:text-rose-700">Pricing</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileNav').classList.toggle('hidden');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightweight form handler to open an email draft
+    function handleSubmit(e) {
+      e.preventDefault();
+      const [name, email, phone, date, venue, notes] = Array.from(e.target.querySelectorAll('input, textarea')).map(x => x.value.trim());
+      const subject = encodeURIComponent('Booking Request');
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nEvent date: ${date}\nVenue: ${venue}\nNotes: ${notes}`);
+      window.location.href = `mailto:hello@gtaflowerwalls.com?subject=${subject}&body=${body}`;
+      document.getElementById('formMsg').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
