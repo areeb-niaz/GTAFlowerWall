@@ -1,254 +1,811 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GTA Flower Wall Rentals | Elegant Nikkah Partition & Floral Wall Rental</title>
-  <meta name="description" content="Luxury floral wall partition rental for masjid nikkahs, weddings, and events across Toronto and the GTA. Setup and takedown included." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root { color-scheme: light; }
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    /* Subtle grain */
-    .grain { position: relative; }
-    .grain:before {
-      content: "";
-      position: absolute; inset: 0; pointer-events: none; opacity: .08; mix-blend-mode: multiply;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".35"/></svg>');
-      background-size: 320px 320px;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GTA Flower Wall Rentals | Nikkah Partition Rental in Toronto — $200 per day</title>
+<meta name="description" content="A single cascading floral partition wall for masjid nikkahs, weddings and events across Toronto and the GTA. Now $200 per day, reduced from $250. Delivery, setup and takedown included." />
+<link rel="canonical" href="https://www.gtaflowerwall.ca/" />
+<meta property="og:title" content="GTA Flower Wall Rentals — $200 per day" />
+<meta property="og:description" content="Nikkah partition and floral backdrop rental across Toronto and the GTA. Now $200 per day, reduced from $250. Delivery, setup and takedown included." />
+<meta property="og:image" content="https://www.gtaflowerwall.ca/assets/nikkah-wall-hero.webp" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#24382D" />
+<link rel="icon" href="./assets/logo.webp" />
+
+<!-- ══════════════════════════════════════════════════════════
+     EDIT HERE — seasonal sale label
+     Change this one value to rotate the promotion. It fills in
+     every "___ Sale" on the page, and dismissing the banner is
+     remembered per label, so a new season shows the banner again
+     to people who already closed the last one.
+
+     Examples: End of Summer · Fall · Winter Booking ·
+               New Year · Spring Wedding Season
+     Set it to an empty string ('') to hide the banner entirely.
+     ══════════════════════════════════════════════════════════ -->
+<script>window.SEASON_LABEL = 'Fall';</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Nikkah Partition & Floral Wall Rental",
+  "serviceType": "Event floral wall rental",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "GTA Flower Wall Rentals",
+    "telephone": "+1-647-471-2148",
+    "email": "team@gtaflowerwall.ca",
+    "url": "https://www.gtaflowerwall.ca/",
+    "image": "https://www.gtaflowerwall.ca/assets/nikkah-wall-hero.webp",
+    "areaServed": { "@type": "City", "name": "Toronto" }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "200.00",
+    "priceCurrency": "CAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.gtaflowerwall.ca/#book"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ── tokens ─────────────────────────────────────────────── */
+:root{
+  color-scheme: light;
+  --ink:#14201A;
+  --moss:#24382D;
+  --moss-2:#31513E;
+  --sage:#8CA894;
+  --blush:#E7B9BC;
+  --blush-2:#F6E6E5;
+  --ivory:#F7F4EE;
+  --paper:#FFFFFF;
+  --rule:rgba(20,32,26,.13);
+  --rule-strong:rgba(20,32,26,.28);
+
+  --display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --body:"Karla",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(1.25rem,4vw,2.5rem);
+  --gap:clamp(2.5rem,6vw,5rem);
+  --max:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ivory); color:var(--ink);
+  font-family:var(--body); font-size:clamp(1rem,.97rem + .18vw,1.0625rem);
+  line-height:1.65; letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--moss); outline-offset:3px; border-radius:2px}
+
+/* ── type ───────────────────────────────────────────────── */
+h1,h2,h3{font-family:var(--display); font-weight:400; letter-spacing:-.01em; margin:0}
+h1{font-size:clamp(2.6rem,1.6rem + 4.4vw,5rem); line-height:1.02}
+h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.1rem); line-height:1.08}
+h3{font-size:1.3rem; line-height:1.25}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1rem + .4vw,1.25rem); line-height:1.6; color:#3A4A41; max-width:52ch}
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--moss-2);
+}
+.section-head{margin-top:.9rem}
+.section-lede{margin-top:1rem}
+
+/* ── layout ─────────────────────────────────────────────── */
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--pad)}
+section{padding-block:var(--gap)}
+.rule-top{border-top:1px solid var(--rule)}
+
+/* ── buttons ────────────────────────────────────────────── */
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:var(--body); font-weight:600; font-size:.95rem;
+  padding:.85rem 1.5rem; border-radius:999px; border:1px solid transparent;
+  text-decoration:none; cursor:pointer;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.btn-primary{background:var(--moss); color:var(--ivory)}
+.btn-primary:hover{background:var(--ink)}
+.btn-primary:disabled{opacity:.6; cursor:default}
+.btn-ghost{border-color:var(--rule-strong); color:var(--ink); background:transparent}
+.btn-ghost:hover{background:rgba(36,56,45,.06)}
+.btn:active{transform:translateY(1px)}
+
+/* ── sale banner ────────────────────────────────────────── */
+.sticky-top{position:sticky; top:0; z-index:50}
+.sale-bar{
+  background:var(--blush-2); border-bottom:1px solid rgba(20,32,26,.09);
+  color:var(--moss); font-size:.84rem; line-height:1.45;
+}
+.sale-bar[hidden]{display:none}
+.sale-in{
+  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  padding:.6rem var(--pad); position:relative; text-align:center;
+}
+.sale-in p{max-width:64ch}
+.sale-bar .label{font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase}
+.sale-bar .was{
+  font-family:var(--mono); text-decoration:line-through;
+  text-decoration-thickness:1px; color:#93867F;
+}
+.sale-bar .now{font-family:var(--mono); font-weight:500}
+.sale-close{
+  position:absolute; right:calc(var(--pad) - .35rem); top:50%; transform:translateY(-50%);
+  background:none; border:0; padding:.35rem; line-height:0; cursor:pointer;
+  color:var(--moss-2); border-radius:50%; transition:background .15s ease,color .15s ease;
+}
+.sale-close:hover{background:rgba(36,56,45,.09); color:var(--ink)}
+@media (max-width:640px){
+  .sale-in{padding-right:2.4rem; text-align:left; justify-content:flex-start}
+}
+
+/* ── header ─────────────────────────────────────────────── */
+.site-head{
+  background:rgba(247,244,238,.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.head-in{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-block:.85rem}
+.brand{display:flex; align-items:center; gap:.7rem; text-decoration:none}
+.brand img{height:38px; width:38px; border-radius:50%; object-fit:cover}
+.brand b{font-family:var(--display); font-weight:400; font-size:1.18rem; letter-spacing:-.01em; line-height:1.1}
+.brand small{display:block; font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2)}
+.nav{display:flex; align-items:center; gap:1.75rem}
+.nav a{font-size:.92rem; text-decoration:none; color:#3A4A41; transition:color .15s ease}
+.nav a:hover{color:var(--ink)}
+.nav .btn{padding:.6rem 1.15rem; font-size:.88rem; color:var(--ivory)}
+.menu-btn{display:none; background:none; border:1px solid var(--rule-strong); border-radius:10px; padding:.5rem .6rem; cursor:pointer; color:var(--ink)}
+.mobile-nav{display:none; border-top:1px solid var(--rule); background:var(--ivory)}
+.mobile-nav a{display:block; padding:.7rem var(--pad); text-decoration:none; border-bottom:1px solid var(--rule)}
+.mobile-nav a:last-child{border-bottom:0; color:var(--moss); font-weight:600}
+@media (max-width:860px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-nav.open{display:block}
+}
+
+/* ── hero ───────────────────────────────────────────────── */
+.hero{padding-block:clamp(3rem,7vw,6rem) var(--gap)}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2rem,5vw,4rem); align-items:center}
+.hero h1{margin-top:1.1rem}
+.hero h1 em{color:var(--moss-2)}
+.hero .lede{margin-top:1.4rem}
+.hero-cta{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem}
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:1.5rem 2.5rem; margin:2.25rem 0 0;
+  padding-top:1.5rem; border-top:1px solid var(--rule);
+}
+.hero-meta dt{font-family:var(--mono); font-size:.66rem; letter-spacing:.15em; text-transform:uppercase; color:var(--moss-2)}
+.hero-meta dd{margin:.3rem 0 0; font-size:.95rem}
+.hero-art{position:relative}
+.hero-art img{
+  width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px;
+  border:1px solid var(--rule);
+}
+.hero-card{
+  position:absolute; left:-1.5rem; bottom:1.75rem;
+  background:var(--paper); border:1px solid var(--rule);
+  padding:.9rem 1.1rem; max-width:16rem; border-radius:2px;
+  box-shadow:0 10px 30px rgba(20,32,26,.09);
+}
+.hero-card p{font-size:.86rem; line-height:1.45}
+.hero-card .eyebrow{display:block; margin-bottom:.35rem}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:-1}
+  .hero-art img{aspect-ratio:4/3}
+  .hero-card{position:static; margin-top:1rem; max-width:none; box-shadow:none}
+}
+
+/* ── the wall ───────────────────────────────────────────── */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:start}
+@media (max-width:860px){ .split{grid-template-columns:1fr} }
+.spec{margin:2rem 0 0; border-top:1px solid var(--rule-strong)}
+.spec-row{display:grid; grid-template-columns:8.5rem 1fr; gap:1.25rem; padding:1.1rem 0; border-bottom:1px solid var(--rule)}
+.spec-row dt{font-family:var(--mono); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--moss-2); padding-top:.2rem}
+.spec-row dd{margin:0; font-size:.98rem}
+@media (max-width:520px){ .spec-row{grid-template-columns:1fr; gap:.3rem} }
+.stack-2{display:grid; gap:1rem}
+.stack-2 img{width:100%; aspect-ratio:4/3; object-fit:cover; border:1px solid var(--rule); border-radius:2px}
+
+/* ── service band ───────────────────────────────────────── */
+.band{background:var(--moss); color:#EDEFE9}
+.band h2{color:var(--ivory)}
+.band .lede{color:rgba(237,239,233,.78)}
+.band .eyebrow{color:var(--sage)}
+.steps{display:grid; grid-template-columns:repeat(3,1fr); margin-top:3rem; border-top:1px solid rgba(237,239,233,.22)}
+.step{padding:1.75rem 1.5rem 1.75rem 0; border-right:1px solid rgba(237,239,233,.22)}
+.step:not(:first-child){padding-left:1.5rem}
+.step:last-child{border-right:0; padding-right:0}
+.step .eyebrow{display:block; margin-bottom:.85rem}
+.step h3{color:var(--ivory); font-size:1.22rem}
+.step p{margin-top:.5rem; font-size:.94rem; color:rgba(237,239,233,.78)}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr}
+  .step{border-right:0; border-bottom:1px solid rgba(237,239,233,.22); padding:1.5rem 0}
+  .step:not(:first-child){padding-left:0}
+  .step:last-child{border-bottom:0; padding-bottom:0}
+}
+
+/* ── pricing ────────────────────────────────────────────── */
+.price-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:center}
+@media (max-width:860px){ .price-grid{grid-template-columns:1fr} }
+.price-tag{display:flex; align-items:baseline; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem}
+.price-tag .amount{font-family:var(--mono); font-size:clamp(3.2rem,2rem + 5vw,4.75rem); letter-spacing:-.04em; line-height:1}
+.price-tag .was{
+  font-family:var(--mono); font-size:clamp(1.5rem,1rem + 2vw,2.1rem); line-height:1;
+  color:#93867F; text-decoration:line-through; text-decoration-thickness:2px;
+  text-decoration-color:var(--blush);
+}
+.price-tag .unit{font-family:var(--mono); font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2)}
+.price-flag{
+  display:inline-block; margin-top:1rem; padding:.3rem .7rem;
+  background:var(--blush-2); border-radius:999px;
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss);
+}
+.price-flag[hidden]{display:none}
+.hero-meta .was{
+  font-family:var(--mono); color:#93867F;
+  text-decoration:line-through; text-decoration-thickness:1px; text-decoration-color:var(--blush);
+}
+.incl{margin:0; padding:0; list-style:none; border-top:1px solid var(--rule)}
+.incl li{display:flex; gap:.9rem; align-items:baseline; padding:.8rem 0; border-bottom:1px solid var(--rule); font-size:.97rem}
+.incl li::before{content:"—"; font-family:var(--mono); color:var(--blush); flex:none}
+.note{margin-top:1.25rem; font-size:.86rem; color:#5B6B61}
+
+/* ── gallery ────────────────────────────────────────────── */
+.gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem}
+.gallery figure{margin:0}
+.gallery img{width:100%; aspect-ratio:4/5; object-fit:cover; border:1px solid var(--rule); border-radius:2px}
+.gallery figcaption{margin-top:.6rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--moss-2)}
+@media (max-width:860px){ .gallery{grid-template-columns:1fr 1fr} .gallery img{aspect-ratio:1} }
+@media (max-width:520px){ .gallery{grid-template-columns:1fr} }
+
+/* ── booking + calendar ─────────────────────────────────── */
+.book-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(2rem,5vw,4rem); align-items:start}
+@media (max-width:980px){ .book-grid{grid-template-columns:1fr} }
+
+.cal{background:var(--paper); border:1px solid var(--rule); border-radius:2px; padding:1.25rem; margin-top:1.75rem}
+.cal-months{display:flex; gap:.4rem; overflow-x:auto; padding-bottom:.85rem; border-bottom:1px solid var(--rule)}
+.cal-months button{
+  flex:none; font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:.45rem .75rem; border-radius:999px; border:1px solid var(--rule);
+  background:transparent; color:#5B6B61; cursor:pointer; transition:background .15s ease,color .15s ease,border-color .15s ease;
+}
+.cal-months button:hover{border-color:var(--rule-strong); color:var(--ink)}
+.cal-months button[aria-selected="true"]{background:var(--moss); border-color:var(--moss); color:var(--ivory)}
+.cal-weekdays,.cal-days{display:grid; grid-template-columns:repeat(7,1fr); gap:.3rem}
+.cal-weekdays{margin-top:1rem}
+.cal-weekdays span{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  color:#8A968F; text-align:center; padding-bottom:.3rem;
+}
+.cal-days{margin-top:.15rem}
+.cal-days button{
+  font-family:var(--mono); font-size:.82rem; aspect-ratio:1; width:100%; padding:0;
+  border:1px solid transparent; border-radius:50%; background:transparent; color:var(--ink);
+  cursor:pointer; transition:background .14s ease,border-color .14s ease,color .14s ease;
+}
+.cal-days button:hover:not(:disabled){background:var(--blush-2); border-color:var(--blush)}
+.cal-days button:disabled{color:#C3CAC5; cursor:default}
+.cal-days button[aria-pressed="true"]{background:var(--moss); border-color:var(--moss); color:var(--ivory)}
+.cal-days .blank{visibility:hidden}
+.cal-readout{
+  margin-top:1rem; padding-top:.9rem; border-top:1px solid var(--rule);
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.04em; color:#5B6B61;
+}
+.cal-readout b{color:var(--moss); font-weight:500}
+.book-aside{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem}
+
+/* ── form ───────────────────────────────────────────────── */
+.form{background:var(--paper); border:1px solid var(--rule); border-radius:2px; padding:clamp(1.25rem,3vw,2rem)}
+.fields{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.25rem}
+.field{display:flex; flex-direction:column; gap:.35rem}
+.field.wide{grid-column:1/-1}
+.field label{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2)}
+.field input,.field textarea{
+  font-family:var(--body); font-size:.95rem; color:var(--ink);
+  background:var(--ivory); border:1px solid var(--rule); border-radius:2px;
+  padding:.7rem .8rem; width:100%; transition:border-color .15s ease,background .15s ease;
+}
+.field textarea{resize:vertical; min-height:6.5rem}
+.field input:focus,.field textarea:focus{outline:none; border-color:var(--moss); background:var(--paper)}
+@media (max-width:560px){ .fields{grid-template-columns:1fr} }
+.form .btn{width:100%; justify-content:center; margin-top:1.25rem}
+.form-msg{margin-top:.9rem; font-size:.88rem; line-height:1.5}
+.form-msg.ok{color:var(--moss-2)}
+.form-msg.err{color:#A34A43}
+
+/* ── footer ─────────────────────────────────────────────── */
+.site-foot{border-top:1px solid var(--rule); padding-block:2.25rem; font-size:.85rem; color:#5B6B61}
+.foot-in{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem}
+.foot-in a{text-decoration:none}
+.foot-in a:hover{color:var(--ink)}
+.foot-links{display:flex; flex-wrap:wrap; gap:1.25rem}
+
+/* ── motion ─────────────────────────────────────────────── */
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1; transform:none}
+  *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
+</style>
 </head>
-<body class="bg-white text-slate-900">
-  <!-- Top bar -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2">
-        <img src="./assets/logo.webp" alt="GTA Flower Wall Rentals Logo" class="h-10 w-10 rounded-xl object-cover" />
-        <span class="font-semibold tracking-tight">GTA Flower Wall Rentals</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#wall" class="hover:text-rose-600">The Wall</a>
-        <a href="#service" class="hover:text-rose-600">Service</a>
-        <a href="#pricing" class="hover:text-rose-600">Pricing</a>
-        <a href="#gallery" class="hover:text-rose-600">Gallery</a>
-        <a href="#contact" class="inline-flex items-center rounded-full bg-rose-600 px-4 py-2 text-white font-medium shadow hover:bg-rose-700">Contact</a>
-      </nav>
-      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 hover:bg-slate-50" aria-label="Open menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-          <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
-        <div class="px-4 py-3 space-y-2">
-          <a href="#wall" class="block py-2">The Wall</a>
-          <a href="#service" class="block py-2">Service</a>
-          <a href="#pricing" class="block py-2">Pricing</a>
-          <a href="#gallery" class="block py-2">Gallery</a>
-          <a href="#contact" class="block py-2 font-medium text-rose-700">Contact</a>
-        </div>
-      </div>
-  </header>
+<body>
+
+<div class="sticky-top">
+
+<aside class="sale-bar" id="saleBar" hidden>
+  <div class="sale-in">
+    <p>
+      <span class="label js-season-sale"></span>
+      <span class="was">$250</span>
+      <span class="now">$200</span>
+      · Includes delivery, setup, and takedown.
+    </p>
+    <button class="sale-close" id="saleClose" type="button" aria-label="Dismiss sale notice">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</aside>
+<script>
+/* Decide the banner's visibility before first paint so it never
+   flashes in and then out. The seasonal label everywhere else on
+   the page is filled by the main script at the end of the body. */
+(function () {
+  var label = (window.SEASON_LABEL || '').trim();
+  if (!label) { return; }
+
+  var dismissed = null;
+  try { dismissed = localStorage.getItem('gfw-sale-dismissed'); } catch (e) {}
+  if (dismissed === label) { return; }
+
+  document.querySelector('#saleBar .js-season-sale').textContent = label + ' Sale';
+  document.getElementById('saleBar').hidden = false;
+})();
+</script>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top">
+      <img src="./assets/logo.webp" alt="" />
+      <span><b>GTA Flower Wall</b><small>Rentals · Toronto</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#wall">The wall</a>
+      <a href="#service">Service</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#gallery">Gallery</a>
+      <a class="btn btn-primary" href="#book">Check your date</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#wall">The wall</a>
+    <a href="#service">Service</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#book">Check your date</a>
+  </nav>
+</header>
+
+</div><!-- /.sticky-top -->
+
+<main id="top">
 
   <!-- Hero -->
-  <section id="home" class="relative isolate grain">
-    <div class="absolute inset-0 bg-gradient-to-b from-rose-50 via-white to-white"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+  <section class="hero">
+    <div class="wrap hero-grid">
       <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">Elegant Nikkah Partition & Floral Wall Rental</h1>
-        <p class="mt-4 text-lg text-slate-700 max-w-xl">A single signature piece. Crafted for masjid nikkahs, weddings, and refined events across the GTA. Setup and takedown included.</p>
-        <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a href="#contact" class="inline-flex items-center rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Contact us</a>
-          <a href="#gallery" class="inline-flex items-center rounded-full border border-slate-300 px-6 py-3 font-medium hover:bg-slate-50">See gallery</a>
+        <p class="eyebrow">Nikkah partition · Toronto &amp; the GTA</p>
+        <h1>The partition your nikkah needs, and the backdrop your <em>photos</em> want.</h1>
+        <p class="lede">One cascading floral wall with soft chiffon draping. We deliver it, set it up, and take it down the same day.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#book">Check your date</a>
+          <a class="btn btn-ghost" href="#wall">See the wall</a>
         </div>
-        <div class="mt-6 flex items-center gap-4 text-sm text-slate-600">
-          <div class="flex -space-x-2">
-            <span class="inline-flex h-7 w-7 rounded-full ring-2 ring-white bg-rose-200"></span>
-            <span class="inline-flex h-7 w-7 rounded-full ring-2 ring-white bg-pink-200"></span>
-            <span class="inline-flex h-7 w-7 rounded-full ring-2 ring-white bg-emerald-200"></span>
-          </div>
-          <p>Masjid friendly. Boutique service. Limited dates.</p>
-        </div>
+        <dl class="hero-meta">
+          <div><dt>Rate</dt><dd><span class="was">$250</span> $200 per day</dd></div>
+          <div><dt>Coverage</dt><dd>Toronto &amp; the GTA</dd></div>
+          <div><dt>Setup</dt><dd>Included, both ways</dd></div>
+        </dl>
       </div>
-      <div class="relative">
-        <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200">
-          <!-- Replace src with your hosted image urls -->
-          <img src="./assets/nikkah-wall-hero.webp" alt="Luxury floral partition" class="h-full w-full object-cover" />
-        </div>
-        <div class="absolute -bottom-6 -left-6 hidden sm:block bg-white rounded-2xl shadow-lg ring-1 ring-slate-200 p-4">
-          <p class="text-sm font-semibold">White cascading florals with soft draping</p>
-          <p class="text-xs text-slate-600">Privacy partition and photo backdrop in one</p>
+      <div class="hero-art">
+        <img src="./assets/nikkah-wall-hero.webp" alt="White cascading floral wall with chiffon draping, set up for a nikkah ceremony" />
+        <div class="hero-card">
+          <span class="eyebrow">The piece</span>
+          <p>White cascading florals, pink and ivory accents along the top rail, chiffon drape to the floor.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Wall -->
-  <section id="wall" class="py-16 lg:py-20 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
-        <div class="prose prose-slate max-w-none">
-          <h2 class="text-3xl font-bold tracking-tight !mb-6">The Wall</h2>
-          <ul class="grid sm:grid-cols-2 gap-3 list-none p-0">
-            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>White cascading floral backdrop with soft chiffon drape</span></li>
-            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>Pink and ivory floral accents along the top rail</span></li>
-            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>Acts as a privacy partition during the ceremony</span></li>
-            <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-rose-100 flex-shrink-0"></span><span>Doubles as a premium photo backdrop for portraits</span></li>
-          </ul>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <img src="./assets/nikkah-wall-room.webp" alt="Flower wall in event hall" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
-          <img src="./assets/nikkah-wall-masjid.webp" alt="Flower wall in masjid" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
-        </div>
+  <!-- The wall -->
+  <section id="wall" class="rule-top">
+    <div class="wrap split reveal">
+      <div>
+        <p class="eyebrow">The wall</p>
+        <h2 class="section-head">One piece, doing two jobs.</h2>
+        <p class="lede section-lede">It stands between the two sides during the ceremony, then becomes the wall everyone photographs afterwards.</p>
+        <dl class="spec">
+          <div class="spec-row"><dt>Privacy</dt><dd>Full-height partition that separates the ceremony space without closing the room in.</dd></div>
+          <div class="spec-row"><dt>Backdrop</dt><dd>Reads clean in photos and video, in daylight or hall lighting.</dd></div>
+          <div class="spec-row"><dt>Finish</dt><dd>White cascading florals, pink and ivory accents, chiffon drape to the floor.</dd></div>
+          <div class="spec-row"><dt>Footprint</dt><dd>Freestanding on a narrow base. Nothing is fixed to walls, carpet or fittings.</dd></div>
+        </dl>
+      </div>
+      <div class="stack-2">
+        <img src="./assets/nikkah-wall-room.webp" alt="The floral wall set up in an event hall with guest seating" loading="lazy" />
+        <img src="./assets/nikkah-wall-masjid.webp" alt="The floral wall set up inside a masjid prayer hall" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- Service -->
-  <section id="service" class="py-16 lg:py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-1">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Stress free service</h2>
-          <p class="mt-3 text-slate-700">We run a tight setup so your day stays smooth and on time.</p>
+  <section id="service" class="band">
+    <div class="wrap reveal">
+      <p class="eyebrow">How the day runs</p>
+      <h2 class="section-head">You never touch the wall.</h2>
+      <p class="lede section-lede">We handle it end to end, so nobody in your family is solving problems on the day.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="eyebrow">Before</span>
+          <h3>We arrive early</h3>
+          <p>We agree an arrival window with you, come in ahead of the guests, position the wall and secure the draping.</p>
         </div>
-        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <h3 class="font-semibold">Setup and takedown included</h3>
-            <p class="mt-1 text-slate-700">We arrive early, position the wall, secure draping, and clear everything after the event.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <h3 class="font-semibold">Masjid friendly placement</h3>
-            <p class="mt-1 text-slate-700">Respectful spacing and clean footprints that keep the prayer hall neat.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <h3 class="font-semibold">Toronto and GTA</h3>
-            <p class="mt-1 text-slate-700">Flexible delivery across the city with reliable arrival windows.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <h3 class="font-semibold">Professional look</h3>
-            <p class="mt-1 text-slate-700">A boutique piece that upgrades both ceremony flow and photography.</p>
-          </div>
+        <div class="step">
+          <span class="eyebrow">During</span>
+          <h3>It stays put</h3>
+          <p>Freestanding and stable, placed to respect the prayer hall layout and keep the walkways clear.</p>
+        </div>
+        <div class="step">
+          <span class="eyebrow">After</span>
+          <h3>We clear out</h3>
+          <p>We take the wall down and leave the space as we found it. Nothing is left for you to clean up.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold tracking-tight">Simple pricing</h2>
-      <p class="mt-2 text-slate-700">One premium wall. Clear rate. No hidden fees.</p>
-      <div class="mt-8 mx-auto max-w-2xl rounded-2xl border border-slate-200 p-8 shadow-sm">
-        <div class="flex items-end justify-center gap-2">
-          <span class="text-5xl font-extrabold">$250</span>
-          <span class="text-slate-600">per day</span>
+  <section id="pricing">
+    <div class="wrap price-grid reveal">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2 class="section-head">One wall. One rate.</h2>
+        <div class="price-tag">
+          <span class="was">$250</span>
+          <span class="amount">$200</span>
+          <span class="unit">per day</span>
         </div>
-        <ul class="mt-6 space-y-2 text-left mx-auto max-w-md">
-          <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 flex-shrink-0"></span><span>Full setup and takedown</span></li>
-          <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 flex-shrink-0"></span><span>Delivery within Toronto and the GTA</span></li>
-          <li class="flex gap-3"><span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 flex-shrink-0"></span><span>Masjid friendly layout</span></li>
-        </ul>
-        <div class="mt-8">
-          <a href="#contact" class="inline-flex items-center rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Request your date</a>
-        </div>
+        <p class="price-flag js-season-sale"></p>
+        <p class="note">Weekday and multi-day rates are available. Ask when you send your date.</p>
       </div>
-      <p class="mt-4 text-sm text-slate-600">Weekday and multi day rates available on request.</p>
+      <div>
+        <ul class="incl">
+          <li>Delivery anywhere in Toronto and the GTA</li>
+          <li>Setup before the ceremony and takedown after</li>
+          <li>Placement planned around the prayer hall layout</li>
+          <li>No added fees on the day</li>
+        </ul>
+        <a class="btn btn-primary" href="#book" style="margin-top:1.75rem">Check your date</a>
+      </div>
     </div>
   </section>
 
   <!-- Gallery -->
-  <section id="gallery" class="py-16 lg:py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold tracking-tight text-center">Gallery</h2>
-      <p class="mt-2 text-slate-700 text-center">Real setups in halls and masjids across the GTA.</p>
-      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <img src="./assets/nikkah-wall-hero.webp" alt="Flower wall close up" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
-        <img src="./assets/nikkah-wall-room.webp" alt="Flower wall and seating" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
-        <img src="./assets/nikkah-wall-masjid.webp" alt="Flower wall wide view" class="rounded-xl ring-1 ring-slate-200 object-cover aspect-[4/3]" />
+  <section id="gallery" class="rule-top">
+    <div class="wrap reveal">
+      <p class="eyebrow">Gallery</p>
+      <h2 class="section-head">Set up around the GTA.</h2>
+      <div class="gallery">
+        <figure>
+          <img src="./assets/nikkah-wall-hero.webp" alt="Close view of the cascading floral wall" loading="lazy" />
+          <figcaption>Detail — top rail</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/nikkah-wall-room.webp" alt="The floral wall with guest seating in an event hall" loading="lazy" />
+          <figcaption>Event hall</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/nikkah-wall-masjid.webp" alt="Wide view of the floral wall in a masjid" loading="lazy" />
+          <figcaption>Masjid — wide</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
-        <div>
-          <h2 class="text-3xl font-bold tracking-tight">Check availability</h2>
-          <p class="mt-2 text-slate-700">Tell us your date, venue, time window, and any special notes. We respond quickly.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <!-- Update mailto and phone -->
-            <a href="mailto:hello@gtaflowerwalls.com?subject=Booking%20Request" class="inline-flex items-center rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Email us</a>
-            <a href="tel:+16474712148" class="inline-flex items-center rounded-full border border-slate-300 px-6 py-3 font-medium hover:bg-slate-50">Call or text</a>
+  <!-- Booking -->
+  <section id="book" class="rule-top">
+    <div class="wrap book-grid reveal">
+      <div>
+        <p class="eyebrow">Book</p>
+        <h2 class="section-head">Pick your date.</h2>
+        <p class="lede section-lede">Choose the day below and it fills in the form. We reply with availability, usually the same day.</p>
+
+        <div class="cal">
+          <div class="cal-months" id="calMonths" role="tablist" aria-label="Choose a month"></div>
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
           </div>
-          <p class="mt-4 text-sm text-slate-600">Limited dates each month to keep service standards high.</p>
+          <div class="cal-days" id="calDays" role="group" aria-label="Choose a date"></div>
+          <p class="cal-readout" id="calReadout">No date selected yet</p>
         </div>
-        <form class="rounded-2xl border border-slate-200 p-6 shadow-sm bg-white" onsubmit="handleSubmit(event)">
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium">Name</label>
-              <input required type="text" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Email</label>
-              <input required type="email" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Phone</label>
-              <input type="tel" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Event date</label>
-              <input type="date" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" />
-            </div>
-            <div class="sm:col-span-2">
-              <label class="block text-sm font-medium">Venue</label>
-              <input type="text" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" placeholder="Masjid or hall name" />
-            </div>
-            <div class="sm:col-span-2">
-              <label class="block text-sm font-medium">Notes</label>
-              <textarea rows="4" class="mt-1 w-full rounded-lg border-slate-300 focus:border-rose-600 focus:ring-rose-600" placeholder="Arrival time, layout notes, access details"></textarea>
-            </div>
-          </div>
-          <button type="submit" class="mt-4 w-full rounded-full bg-rose-600 px-6 py-3 text-white font-semibold shadow hover:bg-rose-700">Book Your Date</button>
-          <p id="formMsg" class="mt-3 text-sm text-emerald-700 hidden">Thanks. Your mail app will open with the details.</p>
-        </form>
+
+        <div class="book-aside">
+          <a class="btn btn-ghost" href="tel:+16474712148">Call or text 647-471-2148</a>
+        </div>
       </div>
+
+      <form class="form" id="bookingForm" novalidate>
+        <p class="eyebrow">Booking request</p>
+        <div class="fields">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="647-000-0000" />
+          </div>
+          <div class="field">
+            <label for="f-date">Event date</label>
+            <input id="f-date" name="date" type="date" required />
+          </div>
+          <div class="field wide">
+            <label for="f-venue">Venue</label>
+            <input id="f-venue" name="venue" type="text" placeholder="Masjid or hall name" />
+          </div>
+          <div class="field wide">
+            <label for="f-notes">Notes</label>
+            <textarea id="f-notes" name="notes" rows="4" placeholder="Arrival window, layout, loading access"></textarea>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="submitBtn">Send booking request</button>
+        <p class="form-msg" id="formMsg" role="status" hidden></p>
+      </form>
     </div>
   </section>
+</main>
 
-  <footer class="border-t border-slate-200 py-8 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>© <span id="year"></span> GTA Flower Walls. All rights reserved.</p>
-      <div class="flex items-center gap-4">
-        <a href="#contact" class="hover:text-rose-700">Contact</a>
-        <a href="#pricing" class="hover:text-rose-700">Pricing</a>
-      </div>
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <p>© <span id="year"></span> GTA Flower Wall Rentals · Toronto &amp; the GTA</p>
+    <div class="foot-links">
+      <a href="mailto:team@gtaflowerwall.ca">team@gtaflowerwall.ca</a>
+      <a href="tel:+16474712148">647-471-2148</a>
+      <a href="#book">Book</a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    // Mobile menu toggle
-    document.getElementById('menuBtn').addEventListener('click', () => {
-      document.getElementById('mobileNav').classList.toggle('hidden');
+<script>
+(function () {
+  'use strict';
+
+  /* ── config ──────────────────────────────────────────────
+     CONTACT_EMAIL  the inbox booking requests go to.
+     FORM_ENDPOINT  paste a form-backend URL (Formspree, Basin,
+     Netlify Forms) to post submissions straight to an inbox.
+     While it is empty the form falls back to opening the
+     visitor's mail app.
+  ------------------------------------------------------------ */
+  var CONTACT_EMAIL = 'team@gtaflowerwall.ca';
+  var FORM_ENDPOINT = 'https://formspree.io/f/mgawrzjg';
+
+  var $ = function (s) { return document.querySelector(s); };
+
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ── seasonal label + sale banner ─────────────────────── */
+  var season = (window.SEASON_LABEL || '').trim();
+
+  document.querySelectorAll('.js-season-sale').forEach(function (el) {
+    // An empty SEASON_LABEL drops the label rather than leaving a blank pill.
+    if (season) { el.textContent = season + ' Sale'; } else { el.hidden = true; }
+  });
+
+  var saleClose = $('#saleClose');
+  if (saleClose) {
+    saleClose.addEventListener('click', function () {
+      $('#saleBar').hidden = true;
+      // Keyed to the label, so the next season shows the banner again.
+      try { localStorage.setItem('gfw-sale-dismissed', season); } catch (e) {}
     });
+  }
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Lightweight form handler to open an email draft
-    function handleSubmit(e) {
-      e.preventDefault();
-      const [name, email, phone, date, venue, notes] = Array.from(e.target.querySelectorAll('input, textarea')).map(x => x.value.trim());
-      const subject = encodeURIComponent('Booking Request');
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nEvent date: ${date}\nVenue: ${venue}\nNotes: ${notes}`);
-      window.location.href = `mailto:hello@gtaflowerwalls.com?subject=${subject}&body=${body}`;
-      document.getElementById('formMsg').classList.remove('hidden');
+  /* ── mobile menu ──────────────────────────────────────── */
+  var menuBtn = $('#menuBtn'), mobileNav = $('#mobileNav');
+  menuBtn.addEventListener('click', function () {
+    var open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  mobileNav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
     }
-  </script>
+  });
+
+  /* ── scroll reveal ────────────────────────────────────── */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ── date picker ──────────────────────────────────────── */
+  var MONTHS = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+  var ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var MONTH_COUNT = 6;
+
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var monthsEl = $('#calMonths'), daysEl = $('#calDays'), readout = $('#calReadout');
+  var dateInput = $('#f-date');
+  var offset = 0, selected = '';
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function iso(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
+  function monthOf(off) { return new Date(today.getFullYear(), today.getMonth() + off, 1); }
+
+  function renderMonths() {
+    monthsEl.innerHTML = '';
+    for (var i = 0; i < MONTH_COUNT; i++) {
+      (function (index) {
+        var d = monthOf(index);
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-selected', String(index === offset));
+        b.textContent = ABBR[d.getMonth()] + ' ' + String(d.getFullYear()).slice(2);
+        b.addEventListener('click', function () { offset = index; renderMonths(); renderDays(); });
+        monthsEl.appendChild(b);
+      })(i);
+    }
+  }
+
+  function renderDays() {
+    var first = monthOf(offset);
+    var y = first.getFullYear(), m = first.getMonth();
+    var total = new Date(y, m + 1, 0).getDate();
+    daysEl.innerHTML = '';
+
+    for (var b = 0; b < first.getDay(); b++) {
+      var sp = document.createElement('span');
+      sp.className = 'blank';
+      daysEl.appendChild(sp);
+    }
+    for (var d = 1; d <= total; d++) {
+      (function (day) {
+        var value = iso(y, m, day);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = String(day);
+        btn.disabled = new Date(y, m, day) < today;
+        btn.setAttribute('aria-pressed', String(value === selected));
+        btn.setAttribute('aria-label', MONTHS[m] + ' ' + day + ', ' + y);
+        btn.addEventListener('click', function () { select(value); });
+        daysEl.appendChild(btn);
+      })(d);
+    }
+  }
+
+  function select(value) {
+    var parts = value.split('-');
+    if (parts.length !== 3) { return; }
+    selected = value;
+    dateInput.value = value;
+    readout.innerHTML = 'Selected — <b>' + MONTHS[+parts[1] - 1] + ' ' + (+parts[2]) + ', ' + parts[0] + '</b>';
+    // Jump the calendar to the month that was typed into the date field.
+    offset = (+parts[0] - today.getFullYear()) * 12 + (+parts[1] - 1 - today.getMonth());
+    if (offset < 0 || offset >= MONTH_COUNT) { offset = Math.min(Math.max(offset, 0), MONTH_COUNT - 1); }
+    renderMonths();
+    renderDays();
+  }
+
+  function clearDate() {
+    selected = '';
+    readout.textContent = 'No date selected yet';
+    renderDays();
+  }
+
+  dateInput.addEventListener('change', function () {
+    if (dateInput.value) { select(dateInput.value); } else { clearDate(); }
+  });
+
+  renderMonths();
+  renderDays();
+
+  /* ── form ─────────────────────────────────────────────── */
+  var form = $('#bookingForm'), msg = $('#formMsg'), submitBtn = $('#submitBtn');
+
+  function say(text, kind) {
+    msg.textContent = text;
+    msg.className = 'form-msg ' + kind;
+    msg.hidden = false;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      say('Add your name, email and event date so we can check availability.', 'err');
+      var bad = form.querySelector(':invalid');
+      if (bad) { bad.focus(); }
+      return;
+    }
+
+    var data = new FormData(form);
+    var get = function (k) { return (data.get(k) || '').toString().trim(); };
+
+    if (FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending';
+      fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(function (res) {
+          if (!res.ok) { throw new Error('Request failed: ' + res.status); }
+          form.reset();
+          clearDate();
+          say('Request sent. We will reply with availability for your date.', 'ok');
+        })
+        .catch(function () {
+          say('That did not go through. Call or text 647-471-2148 and we will take the details.', 'err');
+        })
+        .then(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send booking request';
+        });
+      return;
+    }
+
+    // Fallback: hand the details to the visitor's mail app.
+    var body = [
+      'Name: ' + get('name'),
+      'Email: ' + get('email'),
+      'Phone: ' + get('phone'),
+      'Event date: ' + get('date'),
+      'Venue: ' + get('venue'),
+      '',
+      'Notes:',
+      get('notes')
+    ].join('\n');
+
+    window.location.href = 'mailto:' + CONTACT_EMAIL +
+      '?subject=' + encodeURIComponent('Booking request — ' + get('date')) +
+      '&body=' + encodeURIComponent(body);
+
+    say('Your mail app should open with the details filled in. If nothing opens, email ' +
+        CONTACT_EMAIL + ' or text 647-471-2148.', 'ok');
+  });
+})();
+</script>
 </body>
 </html>
