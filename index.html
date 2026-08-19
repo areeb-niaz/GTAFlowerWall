@@ -266,13 +266,42 @@ section{padding-block:var(--gap)}
 .incl li::before{content:"—"; font-family:var(--mono); color:var(--blush); flex:none}
 .note{margin-top:1.25rem; font-size:.86rem; color:#5B6B61}
 
-/* ── gallery ────────────────────────────────────────────── */
-.gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem}
-.gallery figure{margin:0}
-.gallery img{width:100%; aspect-ratio:4/5; object-fit:cover; border:1px solid var(--rule); border-radius:2px}
-.gallery figcaption{margin-top:.6rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--moss-2)}
-@media (max-width:860px){ .gallery{grid-template-columns:1fr 1fr} .gallery img{aspect-ratio:1} }
-@media (max-width:520px){ .gallery{grid-template-columns:1fr} }
+/* ── gallery carousel ───────────────────────────────────── */
+.carousel{position:relative; margin-top:2.5rem}
+.car-viewport{overflow:hidden; border:1px solid var(--rule); border-radius:2px; background:var(--paper)}
+.car-track{display:flex; transition:transform .65s cubic-bezier(.4,0,.2,1)}
+.car-track.no-anim{transition:none}
+.car-slide{flex:0 0 100%; min-width:0}
+.car-slide img{
+  width:100%; aspect-ratio:16/10; object-fit:cover; display:block;
+  -webkit-user-drag:none; user-select:none;
+}
+@media (max-width:640px){ .car-slide img{aspect-ratio:4/3} }
+
+.car-nav{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+  width:2.75rem; height:2.75rem; display:grid; place-items:center;
+  background:rgba(247,244,238,.92); backdrop-filter:blur(6px);
+  border:1px solid var(--rule); border-radius:50%; color:var(--moss);
+  cursor:pointer; transition:background .15s ease,color .15s ease;
+}
+.car-nav:hover{background:var(--paper); color:var(--ink)}
+.car-prev{left:.85rem}
+.car-next{right:.85rem}
+@media (max-width:640px){ .car-nav{width:2.25rem; height:2.25rem} .car-prev{left:.5rem} .car-next{right:.5rem} }
+
+.car-dots{display:flex; justify-content:center; gap:.5rem; margin-top:1.1rem}
+.car-dots button{
+  width:.5rem; height:.5rem; padding:0; border-radius:50%; cursor:pointer;
+  background:transparent; border:1px solid var(--rule-strong);
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.car-dots button:hover{background:var(--blush)}
+.car-dots button[aria-current="true"]{background:var(--moss); border-color:var(--moss); transform:scale(1.25)}
+
+/* A single image needs no controls. */
+.carousel.single .car-nav,
+.carousel.single .car-dots{display:none}
 
 /* ── booking + calendar ─────────────────────────────────── */
 .book-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(2rem,5vw,4rem); align-items:start}
@@ -515,19 +544,17 @@ section{padding-block:var(--gap)}
     <div class="wrap reveal">
       <p class="eyebrow">Gallery</p>
       <h2 class="section-head">Set up around the GTA.</h2>
-      <div class="gallery">
-        <figure>
-          <img src="./assets/nikkah-wall-hero.webp" alt="Close view of the cascading floral wall" loading="lazy" />
-          <figcaption>Detail — top rail</figcaption>
-        </figure>
-        <figure>
-          <img src="./assets/nikkah-wall-room.webp" alt="The floral wall with guest seating in an event hall" loading="lazy" />
-          <figcaption>Event hall</figcaption>
-        </figure>
-        <figure>
-          <img src="./assets/nikkah-wall-masjid.webp" alt="Wide view of the floral wall in a masjid" loading="lazy" />
-          <figcaption>Masjid — wide</figcaption>
-        </figure>
+      <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Photos of the flower wall">
+        <div class="car-viewport">
+          <div class="car-track" id="carTrack"></div>
+        </div>
+        <button class="car-nav car-prev" id="carPrev" type="button" aria-label="Previous photo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="car-nav car-next" id="carNext" type="button" aria-label="Next photo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="car-dots" id="carDots"></div>
       </div>
     </div>
   </section>
@@ -613,6 +640,26 @@ section{padding-block:var(--gap)}
   ------------------------------------------------------------ */
   var CONTACT_EMAIL = 'team@gtaflowerwall.ca';
   var FORM_ENDPOINT = 'https://formspree.io/f/mgawrzjg';
+
+  /* ── gallery ─────────────────────────────────────────────
+     The carousel builds itself from whatever image files are in
+     assets/ — add a photo, push, and it shows up. Nothing here
+     needs editing for that.
+
+     GALLERY_FALLBACK is only used if the GitHub listing cannot be
+     reached (rate limit, offline, repo made private). Worth adding
+     a filename to it now and then so the gallery never renders
+     empty, but it is not required.
+  ------------------------------------------------------------ */
+  var GALLERY_REPO = 'areeb-niaz/GTAFlowerWall';
+  var GALLERY_DIR = 'assets';
+  var GALLERY_SKIP = /^logo\b/i;              // logo is not a gallery photo
+  var GALLERY_ROTATE_MS = 6000;               // 0 turns auto-rotation off
+  var GALLERY_FALLBACK = [
+    'nikkah-wall-hero.webp',
+    'nikkah-wall-room.webp',
+    'nikkah-wall-masjid.webp'
+  ];
 
   var $ = function (s) { return document.querySelector(s); };
 
@@ -743,6 +790,114 @@ section{padding-block:var(--gap)}
 
   renderMonths();
   renderDays();
+
+  /* ── gallery carousel ─────────────────────────────────── */
+  (function () {
+    var root = $('#carousel'), track = $('#carTrack'), dotsEl = $('#carDots');
+    var prevBtn = $('#carPrev'), nextBtn = $('#carNext');
+    if (!root) { return; }
+
+    var IMAGE_RE = /\.(webp|avif|jpe?g|png|gif)$/i;
+    var index = 0, count = 0, timer = null, paused = false;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function go(n) {
+      index = (n + count) % count;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      Array.prototype.forEach.call(dotsEl.children, function (dot, i) {
+        dot.setAttribute('aria-current', String(i === index));
+      });
+    }
+
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() {
+      if (reduceMotion || !GALLERY_ROTATE_MS || count < 2) { return; }
+      stop();
+      timer = setInterval(function () { if (!paused) { go(index + 1); } }, GALLERY_ROTATE_MS);
+    }
+    // Any manual move resets the clock, so a slide never jumps away
+    // immediately after someone clicks to it.
+    function restart() { stop(); start(); }
+
+    function build(files) {
+      count = files.length;
+      if (!count) { root.hidden = true; return; }
+
+      track.innerHTML = '';
+      dotsEl.innerHTML = '';
+
+      files.forEach(function (file, i) {
+        var slide = document.createElement('div');
+        slide.className = 'car-slide';
+
+        var img = document.createElement('img');
+        img.src = './' + GALLERY_DIR + '/' + encodeURIComponent(file);
+        img.alt = 'The flower wall set up for an event';
+        img.loading = i === 0 ? 'eager' : 'lazy';
+        img.draggable = false;
+        slide.appendChild(img);
+        track.appendChild(slide);
+
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Photo ' + (i + 1) + ' of ' + count);
+        dot.addEventListener('click', function () { go(i); restart(); });
+        dotsEl.appendChild(dot);
+      });
+
+      root.classList.toggle('single', count < 2);
+      track.classList.add('no-anim');
+      go(0);
+      // Re-enable the slide transition only after the first paint.
+      requestAnimationFrame(function () { track.classList.remove('no-anim'); });
+      start();
+    }
+
+    prevBtn.addEventListener('click', function () { go(index - 1); restart(); });
+    nextBtn.addEventListener('click', function () { go(index + 1); restart(); });
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { go(index - 1); restart(); }
+      else if (e.key === 'ArrowRight') { go(index + 1); restart(); }
+    });
+
+    ['mouseenter', 'focusin'].forEach(function (ev) {
+      root.addEventListener(ev, function () { paused = true; });
+    });
+    ['mouseleave', 'focusout'].forEach(function (ev) {
+      root.addEventListener(ev, function () { paused = false; });
+    });
+    document.addEventListener('visibilitychange', function () { paused = document.hidden; });
+
+    // Swipe.
+    var startX = null;
+    root.addEventListener('pointerdown', function (e) { startX = e.clientX; });
+    root.addEventListener('pointercancel', function () { startX = null; });
+    root.addEventListener('pointerup', function (e) {
+      if (startX === null) { return; }
+      var dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) { go(dx < 0 ? index + 1 : index - 1); restart(); }
+    });
+
+    // Ask GitHub what is actually in assets/, fall back to the baked list.
+    fetch('https://api.github.com/repos/' + GALLERY_REPO + '/contents/' + GALLERY_DIR,
+          { headers: { Accept: 'application/vnd.github+json' } })
+      .then(function (res) {
+        if (!res.ok) { throw new Error('Listing failed: ' + res.status); }
+        return res.json();
+      })
+      .then(function (items) {
+        var files = items
+          .filter(function (it) {
+            return it.type === 'file' && IMAGE_RE.test(it.name) && !GALLERY_SKIP.test(it.name);
+          })
+          .map(function (it) { return it.name; })
+          .sort(function (a, b) { return a.localeCompare(b); });
+        build(files.length ? files : GALLERY_FALLBACK);
+      })
+      .catch(function () { build(GALLERY_FALLBACK); });
+  })();
 
   /* ── form ─────────────────────────────────────────────── */
   var form = $('#bookingForm'), msg = $('#formMsg'), submitBtn = $('#submitBtn');
