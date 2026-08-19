@@ -267,16 +267,26 @@ section{padding-block:var(--gap)}
 .note{margin-top:1.25rem; font-size:.86rem; color:#5B6B61}
 
 /* ── gallery carousel ───────────────────────────────────── */
-.carousel{position:relative; margin-top:2.5rem}
-.car-viewport{overflow:hidden; border:1px solid var(--rule); border-radius:2px; background:var(--paper)}
-.car-track{display:flex; transition:transform .65s cubic-bezier(.4,0,.2,1)}
+.carousel{position:relative; margin-top:2.5rem; --slide-w:56%; --stage:min(52vh,30rem)}
+.car-viewport{overflow:hidden}
+.car-track{display:flex; align-items:center; transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .car-track.no-anim{transition:none}
-.car-slide{flex:0 0 100%; min-width:0}
+
+.car-slide{
+  flex:0 0 var(--slide-w); min-width:0; padding-inline:.45rem;
+  opacity:.38; transform:scale(.92); cursor:pointer;
+  transition:opacity .5s ease, transform .5s ease;
+}
+.car-slide.active{opacity:1; transform:none; cursor:default}
+/* contain, not cover: a tall flower wall never gets its top cropped,
+   and the ivory field reads as matting around the print. */
 .car-slide img{
-  width:100%; aspect-ratio:16/10; object-fit:cover; display:block;
+  width:100%; height:var(--stage); object-fit:contain;
+  background:var(--ivory); border-radius:2px;
   -webkit-user-drag:none; user-select:none;
 }
-@media (max-width:640px){ .car-slide img{aspect-ratio:4/3} }
+@media (max-width:860px){ .carousel{--slide-w:74%; --stage:min(46vh,22rem)} }
+@media (max-width:520px){ .carousel{--slide-w:86%; --stage:min(44vh,19rem)} }
 
 .car-nav{
   position:absolute; top:50%; transform:translateY(-50%); z-index:2;
@@ -796,17 +806,35 @@ section{padding-block:var(--gap)}
     var root = $('#carousel'), track = $('#carTrack'), dotsEl = $('#carDots');
     var prevBtn = $('#carPrev'), nextBtn = $('#carNext');
     if (!root) { return; }
+    var viewport = root.querySelector('.car-viewport');
 
     var IMAGE_RE = /\.(webp|avif|jpe?g|png|gif)$/i;
-    var index = 0, count = 0, timer = null, paused = false;
+    var index = 0, count = 0, timer = null, paused = false, swiped = false;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Slides are narrower than the viewport, so the active one is
+    // centred by measurement rather than a flat percentage step.
+    // That keeps the neighbours peeking evenly at any width.
     function go(n) {
       index = (n + count) % count;
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      var slide = track.children[index];
+      if (slide) {
+        var offset = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
+        track.style.transform = 'translateX(' + (-offset) + 'px)';
+      }
+      Array.prototype.forEach.call(track.children, function (s, i) {
+        s.classList.toggle('active', i === index);
+      });
       Array.prototype.forEach.call(dotsEl.children, function (dot, i) {
         dot.setAttribute('aria-current', String(i === index));
       });
+    }
+
+    // Re-centre without animating when the layout changes underneath.
+    function recentre() {
+      track.classList.add('no-anim');
+      go(index);
+      requestAnimationFrame(function () { track.classList.remove('no-anim'); });
     }
 
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
@@ -836,6 +864,11 @@ section{padding-block:var(--gap)}
         img.loading = i === 0 ? 'eager' : 'lazy';
         img.draggable = false;
         slide.appendChild(img);
+        // Clicking a peeking neighbour brings it to the centre.
+        slide.addEventListener('click', function () {
+          if (swiped || i === index) { return; }
+          go(i); restart();
+        });
         track.appendChild(slide);
 
         var dot = document.createElement('button');
@@ -846,12 +879,17 @@ section{padding-block:var(--gap)}
       });
 
       root.classList.toggle('single', count < 2);
-      track.classList.add('no-anim');
-      go(0);
-      // Re-enable the slide transition only after the first paint.
-      requestAnimationFrame(function () { track.classList.remove('no-anim'); });
+      recentre();
+      // Images finishing later can shift the measurements.
+      window.addEventListener('load', recentre);
       start();
     }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(recentre, 120);
+    });
 
     prevBtn.addEventListener('click', function () { go(index - 1); restart(); });
     nextBtn.addEventListener('click', function () { go(index + 1); restart(); });
@@ -877,7 +915,12 @@ section{padding-block:var(--gap)}
       if (startX === null) { return; }
       var dx = e.clientX - startX;
       startX = null;
-      if (Math.abs(dx) > 40) { go(dx < 0 ? index + 1 : index - 1); restart(); }
+      if (Math.abs(dx) <= 40) { return; }
+      go(dx < 0 ? index + 1 : index - 1);
+      restart();
+      // Swallow the click this drag is about to produce.
+      swiped = true;
+      setTimeout(function () { swiped = false; }, 0);
     });
 
     // Ask GitHub what is actually in assets/, fall back to the baked list.
