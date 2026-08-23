@@ -283,8 +283,9 @@ section{padding-block:var(--gap)}
   aspect-ratio:4/3; object-fit:cover; object-position:50% 42%;
   background:var(--ivory); border-radius:2px 2px 0 0;
 }
-/* The Signature card carries the moss edge so the eye lands on it first. */
-.tier-feature{border-color:var(--moss); box-shadow:0 14px 36px rgba(20,32,26,.08)}
+/* Both cards share the same hairline edge. Signature is lifted by its
+   shadow and its filled button, not by a heavier border. */
+.tier-feature{box-shadow:0 14px 36px rgba(20,32,26,.08)}
 .tier .price-tag{margin-top:.9rem}
 .tier .price-tag .amount{font-size:clamp(2.6rem,1.8rem + 3vw,3.5rem)}
 .tier .incl{margin-top:1.6rem; flex:1}
