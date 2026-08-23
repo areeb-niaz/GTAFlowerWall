@@ -265,10 +265,15 @@ section{padding-block:var(--gap)}
 
 /* ── pricing ────────────────────────────────────────────── */
 .tiers{
-  display:grid; grid-template-columns:1fr 1fr; align-items:stretch;
+  display:grid; grid-template-columns:1fr 1fr; align-items:start;
   gap:clamp(1.25rem,3vw,2rem); margin-top:2.75rem;
 }
-@media (max-width:860px){ .tiers{grid-template-columns:1fr} }
+@media (max-width:860px){
+  .tiers{grid-template-columns:1fr}
+  /* Stacked, Signature would fall below the fold, so it leads on phones.
+     Side by side the cheap-to-dear reading order is the right one. */
+  .tier-feature{order:-1}
+}
 .tier{
   --tier-pad:clamp(1.5rem,3vw,2.25rem);
   display:flex; flex-direction:column;
@@ -286,9 +291,14 @@ section{padding-block:var(--gap)}
 /* Both cards share the same hairline edge. Signature is lifted by its
    shadow and its filled button, not by a heavier border. */
 .tier-feature{box-shadow:0 14px 36px rgba(20,32,26,.08)}
+.tier-head{display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap}
+.tier-badge{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--moss); background:var(--blush-2); border-radius:999px; padding:.32rem .7rem;
+}
 .tier .price-tag{margin-top:.9rem}
 .tier .price-tag .amount{font-size:clamp(2.6rem,1.8rem + 3vw,3.5rem)}
-.tier .incl{margin-top:1.6rem; flex:1}
+.tier .incl{margin-top:1.6rem}
 .tier .btn{margin-top:1.9rem; align-self:flex-start}
 @media (max-width:860px){ .tier .btn{align-self:stretch; justify-content:center} }
 .price-tag{display:flex; align-items:baseline; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem}
@@ -584,8 +594,8 @@ section{padding-block:var(--gap)}
 
       <div class="tiers">
         <article class="tier">
-          <img class="tier-shot" src="./assets/tier1-hall.webp" alt="The Essential setup: flower wall with full chiffon draping in an event hall" loading="lazy" />
-          <p class="eyebrow">Essential</p>
+          <img class="tier-shot" src="./assets/tier1-card.webp" alt="The Essential setup: flower wall with full chiffon draping in a masjid prayer hall" loading="lazy" />
+          <div class="tier-head"><p class="eyebrow">Essential</p></div>
           <div class="price-tag">
             <span class="amount">$175</span>
             <span class="unit">per day</span>
@@ -599,17 +609,22 @@ section{padding-block:var(--gap)}
         </article>
 
         <article class="tier tier-feature">
-          <img class="tier-shot" src="./assets/tier2-card.webp" alt="The Signature setup: the same wall with a white rug underfoot, candle accents and a floral arrangement" loading="lazy" />
-          <p class="eyebrow">Signature</p>
+          <img class="tier-shot" src="./assets/tier2-card.webp" alt="The Signature setup: the same wall in a masjid prayer hall, with a white rug underfoot, candle accents and floral arrangements" loading="lazy" />
+          <div class="tier-head">
+            <p class="eyebrow">Signature</p>
+            <span class="tier-badge">Most popular</span>
+          </div>
           <div class="price-tag">
             <span class="amount">$225</span>
             <span class="unit">per day</span>
           </div>
           <ul class="incl">
-            <li>Everything in Essential</li>
+            <li>Flower wall backdrop with full draping</li>
+            <li>Two chair covers</li>
             <li>White rug under the wall</li>
             <li>Candle accents</li>
             <li>Floral arrangements</li>
+            <li>Delivery, setup and takedown</li>
           </ul>
           <a class="btn btn-primary" href="#book" data-tier="Signature">Book Signature</a>
         </article>
