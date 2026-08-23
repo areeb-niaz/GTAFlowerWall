@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GTA Flower Wall Rentals | Nikkah Partition Rental in Toronto — $200 per day</title>
-<meta name="description" content="A single cascading floral partition wall for masjid nikkahs, weddings and events across Toronto and the GTA. Now $200 per day, reduced from $250. Delivery, setup and takedown included." />
+<title>GTA Flower Wall Rentals | Nikkah Partition Rental in Toronto — from $175</title>
+<meta name="description" content="A cascading floral partition wall for masjid nikkahs, weddings and events across Toronto and the GTA. Two packages: Essential at $175 and Signature at $225 per day. Delivery, setup and takedown included." />
 <link rel="canonical" href="https://www.gtaflowerwall.ca/" />
-<meta property="og:title" content="GTA Flower Wall Rentals — $200 per day" />
-<meta property="og:description" content="Nikkah partition and floral backdrop rental across Toronto and the GTA. Now $200 per day, reduced from $250. Delivery, setup and takedown included." />
-<meta property="og:image" content="https://www.gtaflowerwall.ca/assets/nikkah-wall-hero.webp" />
+<meta property="og:title" content="GTA Flower Wall Rentals — from $175 per day" />
+<meta property="og:description" content="Nikkah partition and floral backdrop rental across Toronto and the GTA. Essential $175, Signature $225 per day. Delivery, setup and takedown included." />
+<meta property="og:image" content="https://www.gtaflowerwall.ca/assets/tier2-offcenter.webp" />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#24382D" />
 <link rel="icon" href="./assets/logo.webp" />
@@ -22,9 +22,10 @@
 
      Examples: End of Summer · Fall · Winter Booking ·
                New Year · Spring Wedding Season
-     Set it to an empty string ('') to hide the banner entirely.
+     An empty string ('') hides the banner entirely — that is the
+     current setting, since neither package is discounted.
      ══════════════════════════════════════════════════════════ -->
-<script>window.SEASON_LABEL = 'End of Summer';</script>
+<script>window.SEASON_LABEL = '';</script>
 
 <script type="application/ld+json">
 {
@@ -38,15 +39,37 @@
     "telephone": "+1-647-471-2148",
     "email": "team@gtaflowerwall.ca",
     "url": "https://www.gtaflowerwall.ca/",
-    "image": "https://www.gtaflowerwall.ca/assets/nikkah-wall-hero.webp",
+    "image": "https://www.gtaflowerwall.ca/assets/tier2-offcenter.webp",
     "areaServed": { "@type": "City", "name": "Toronto" }
   },
   "offers": {
-    "@type": "Offer",
-    "price": "200.00",
+    "@type": "AggregateOffer",
     "priceCurrency": "CAD",
+    "lowPrice": "175.00",
+    "highPrice": "225.00",
+    "offerCount": 2,
     "availability": "https://schema.org/InStock",
-    "url": "https://www.gtaflowerwall.ca/#book"
+    "url": "https://www.gtaflowerwall.ca/#pricing",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Essential",
+        "description": "Flower wall backdrop with full draping, plus two chair covers.",
+        "price": "175.00",
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.gtaflowerwall.ca/#pricing"
+      },
+      {
+        "@type": "Offer",
+        "name": "Signature",
+        "description": "Everything in Essential, plus a white rug, candle accents and floral arrangements.",
+        "price": "225.00",
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.gtaflowerwall.ca/#pricing"
+      }
+    ]
   }
 }
 </script>
@@ -241,8 +264,23 @@ section{padding-block:var(--gap)}
 }
 
 /* ── pricing ────────────────────────────────────────────── */
-.price-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:center}
-@media (max-width:860px){ .price-grid{grid-template-columns:1fr} }
+.tiers{
+  display:grid; grid-template-columns:1fr 1fr; align-items:stretch;
+  gap:clamp(1.25rem,3vw,2rem); margin-top:2.75rem;
+}
+@media (max-width:860px){ .tiers{grid-template-columns:1fr} }
+.tier{
+  display:flex; flex-direction:column;
+  background:var(--paper); border:1px solid var(--rule); border-radius:2px;
+  padding:clamp(1.5rem,3vw,2.25rem);
+}
+/* The Signature card carries the moss edge so the eye lands on it first. */
+.tier-feature{border-color:var(--moss); box-shadow:0 14px 36px rgba(20,32,26,.08)}
+.tier .price-tag{margin-top:.9rem}
+.tier .price-tag .amount{font-size:clamp(2.6rem,1.8rem + 3vw,3.5rem)}
+.tier .incl{margin-top:1.6rem; flex:1}
+.tier .btn{margin-top:1.9rem; align-self:flex-start}
+@media (max-width:860px){ .tier .btn{align-self:stretch; justify-content:center} }
 .price-tag{display:flex; align-items:baseline; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem}
 .price-tag .amount{font-family:var(--mono); font-size:clamp(3.2rem,2rem + 5vw,4.75rem); letter-spacing:-.04em; line-height:1}
 .price-tag .was{
@@ -355,13 +393,19 @@ section{padding-block:var(--gap)}
 .field{display:flex; flex-direction:column; gap:.35rem}
 .field.wide{grid-column:1/-1}
 .field label{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2)}
-.field input,.field textarea{
+.field input,.field textarea,.field select{
   font-family:var(--body); font-size:.95rem; color:var(--ink);
   background:var(--ivory); border:1px solid var(--rule); border-radius:2px;
   padding:.7rem .8rem; width:100%; transition:border-color .15s ease,background .15s ease;
 }
 .field textarea{resize:vertical; min-height:6.5rem}
-.field input:focus,.field textarea:focus{outline:none; border-color:var(--moss); background:var(--paper)}
+.field select{
+  appearance:none; cursor:pointer; padding-right:2.4rem;
+  /* chevron, so the select does not read as a plain text input */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%2331513E' stroke-width='1.6'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 1rem center;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none; border-color:var(--moss); background:var(--paper)}
 @media (max-width:560px){ .fields{grid-template-columns:1fr} }
 .form .btn{width:100%; justify-content:center; margin-top:1.25rem}
 .form-msg{margin-top:.9rem; font-size:.88rem; line-height:1.5}
@@ -393,9 +437,7 @@ section{padding-block:var(--gap)}
   <div class="sale-in">
     <p>
       <span class="label js-season-sale"></span>
-      <span class="was">$250</span>
-      <span class="now">$200</span>
-      · Includes delivery, setup, and takedown.
+      · Packages from $175. Delivery, setup, and takedown included.
     </p>
     <button class="sale-close" id="saleClose" type="button" aria-label="Dismiss sale notice">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
@@ -455,22 +497,22 @@ section{padding-block:var(--gap)}
       <div>
         <p class="eyebrow">Nikkah partition · Toronto &amp; the GTA</p>
         <h1>The partition your nikkah needs, and the backdrop your <em>photos</em> want.</h1>
-        <p class="lede">One cascading floral wall with soft chiffon draping. We deliver it, set it up, and take it down the same day.</p>
+        <p class="lede">One cascading floral wall with soft chiffon draping, in two packages. We deliver it, set it up, and take it down the same day.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#book">Check your date</a>
           <a class="btn btn-ghost" href="#wall">See the wall</a>
         </div>
         <dl class="hero-meta">
-          <div><dt>Rate</dt><dd><span class="was">$250</span> $200 per day</dd></div>
+          <div><dt>Rate</dt><dd>From $175 per day</dd></div>
           <div><dt>Coverage</dt><dd>Toronto &amp; the GTA</dd></div>
           <div><dt>Setup</dt><dd>Included, both ways</dd></div>
         </dl>
       </div>
       <div class="hero-art">
-        <img src="./assets/nikkah-wall-hero.webp" alt="White cascading floral wall with chiffon draping, set up for a nikkah ceremony" />
+        <img src="./assets/tier2-offcenter.webp" alt="White cascading floral wall with chiffon draping, an ivory rug, candles and a floral arrangement, set up in a masjid prayer hall" />
         <div class="hero-card">
-          <span class="eyebrow">The piece</span>
-          <p>White cascading florals, pink and ivory accents along the top rail, chiffon drape to the floor.</p>
+          <span class="eyebrow">Shown: Signature</span>
+          <p>White cascading florals, chiffon drape to the floor, ivory rug underfoot, candle and floral accents.</p>
         </div>
       </div>
     </div>
@@ -491,8 +533,8 @@ section{padding-block:var(--gap)}
         </dl>
       </div>
       <div class="stack-2">
-        <img src="./assets/nikkah-wall-room.webp" alt="The floral wall set up in an event hall with guest seating" loading="lazy" />
-        <img src="./assets/nikkah-wall-masjid.webp" alt="The floral wall set up inside a masjid prayer hall" loading="lazy" />
+        <img src="./assets/tier1-hall.webp" alt="The Essential setup: flower wall and full chiffon draping in an event hall with guest seating" loading="lazy" />
+        <img src="./assets/tier2-wide.webp" alt="The Signature setup: flower wall with an ivory rug, candles and floral arrangements in a masjid prayer hall" loading="lazy" />
       </div>
     </div>
   </section>
@@ -525,27 +567,44 @@ section{padding-block:var(--gap)}
 
   <!-- Pricing -->
   <section id="pricing">
-    <div class="wrap price-grid reveal">
-      <div>
-        <p class="eyebrow">Pricing</p>
-        <h2 class="section-head">One wall. One rate.</h2>
-        <div class="price-tag">
-          <span class="was">$250</span>
-          <span class="amount">$200</span>
-          <span class="unit">per day</span>
-        </div>
-        <p class="price-flag js-season-sale"></p>
-        <p class="note">Weekday and multi-day rates are available. Ask when you send your date.</p>
+    <div class="wrap reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-head">Two packages, one flat day rate.</h2>
+      <p class="lede section-lede">Both include delivery anywhere in Toronto and the GTA, setup before the ceremony, takedown after, and placement planned around the prayer hall layout. No added fees on the day.</p>
+
+      <div class="tiers">
+        <article class="tier">
+          <p class="eyebrow">Essential</p>
+          <div class="price-tag">
+            <span class="amount">$175</span>
+            <span class="unit">per day</span>
+          </div>
+          <ul class="incl">
+            <li>Flower wall backdrop with full draping</li>
+            <li>Two chair covers</li>
+            <li>Delivery, setup and takedown</li>
+          </ul>
+          <a class="btn btn-ghost" href="#book" data-tier="Essential">Book Essential</a>
+        </article>
+
+        <article class="tier tier-feature">
+          <p class="eyebrow">Signature</p>
+          <div class="price-tag">
+            <span class="amount">$225</span>
+            <span class="unit">per day</span>
+          </div>
+          <ul class="incl">
+            <li>Everything in Essential</li>
+            <li>White rug under the wall</li>
+            <li>Candle accents</li>
+            <li>Floral arrangements</li>
+          </ul>
+          <a class="btn btn-primary" href="#book" data-tier="Signature">Book Signature</a>
+        </article>
       </div>
-      <div>
-        <ul class="incl">
-          <li>Delivery anywhere in Toronto and the GTA</li>
-          <li>Setup before the ceremony and takedown after</li>
-          <li>Placement planned around the prayer hall layout</li>
-          <li>No added fees on the day</li>
-        </ul>
-        <a class="btn btn-primary" href="#book" style="margin-top:1.75rem">Check your date</a>
-      </div>
+
+      <p class="price-flag js-season-sale"></p>
+      <p class="note">Weekday and multi-day rates are available. Ask when you send your date.</p>
     </div>
   </section>
 
@@ -611,6 +670,14 @@ section{padding-block:var(--gap)}
             <input id="f-date" name="date" type="date" required />
           </div>
           <div class="field wide">
+            <label for="f-tier">Package</label>
+            <select id="f-tier" name="tier">
+              <option value="Not sure yet" selected>Not sure yet — help me choose</option>
+              <option value="Essential — $175">Essential — $175 per day</option>
+              <option value="Signature — $225">Signature — $225 per day</option>
+            </select>
+          </div>
+          <div class="field wide">
             <label for="f-venue">Venue</label>
             <input id="f-venue" name="venue" type="text" placeholder="Masjid or hall name" />
           </div>
@@ -666,9 +733,13 @@ section{padding-block:var(--gap)}
   var GALLERY_SKIP = /^logo\b/i;              // logo is not a gallery photo
   var GALLERY_ROTATE_MS = 6000;               // 0 turns auto-rotation off
   var GALLERY_FALLBACK = [
-    'nikkah-wall-hero.webp',
-    'nikkah-wall-room.webp',
-    'nikkah-wall-masjid.webp'
+    'tier2-offcenter.webp',
+    'tier2-wide.webp',
+    'tier2-detail.webp',
+    'tier1-hall.webp',
+    'tier1-masjid.webp',
+    'nikkah-wall-wide.webp',
+    'flower-details.webp'
   ];
 
   var $ = function (s) { return document.querySelector(s); };
@@ -691,6 +762,20 @@ section{padding-block:var(--gap)}
       try { localStorage.setItem('gfw-sale-dismissed', season); } catch (e) {}
     });
   }
+
+  /* ── tier buttons prefill the booking form ────────────── */
+  var tierField = $('#f-tier');
+  document.querySelectorAll('[data-tier]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (!tierField) { return; }
+      var want = link.getAttribute('data-tier');
+      // Match on the option label's leading word, so the price in the
+      // option text can change without touching this.
+      for (var i = 0; i < tierField.options.length; i++) {
+        if (tierField.options[i].value.indexOf(want) === 0) { tierField.selectedIndex = i; break; }
+      }
+    });
+  });
 
   /* ── mobile menu ──────────────────────────────────────── */
   var menuBtn = $('#menuBtn'), mobileNav = $('#mobileNav');
@@ -990,6 +1075,7 @@ section{padding-block:var(--gap)}
       'Email: ' + get('email'),
       'Phone: ' + get('phone'),
       'Event date: ' + get('date'),
+      'Package: ' + get('tier'),
       'Venue: ' + get('venue'),
       '',
       'Notes:',
