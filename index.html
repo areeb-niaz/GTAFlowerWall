@@ -270,9 +270,18 @@ section{padding-block:var(--gap)}
 }
 @media (max-width:860px){ .tiers{grid-template-columns:1fr} }
 .tier{
+  --tier-pad:clamp(1.5rem,3vw,2.25rem);
   display:flex; flex-direction:column;
   background:var(--paper); border:1px solid var(--rule); border-radius:2px;
-  padding:clamp(1.5rem,3vw,2.25rem);
+  padding:var(--tier-pad);
+}
+/* Full-bleed to the card edge, so the photo reads as the card's lid
+   rather than a picture sitting inside it. */
+.tier-shot{
+  width:calc(100% + 2 * var(--tier-pad));
+  margin:calc(-1 * var(--tier-pad)) calc(-1 * var(--tier-pad)) 1.6rem;
+  aspect-ratio:4/3; object-fit:cover; object-position:50% 42%;
+  background:var(--ivory); border-radius:2px 2px 0 0;
 }
 /* The Signature card carries the moss edge so the eye lands on it first. */
 .tier-feature{border-color:var(--moss); box-shadow:0 14px 36px rgba(20,32,26,.08)}
@@ -533,8 +542,8 @@ section{padding-block:var(--gap)}
         </dl>
       </div>
       <div class="stack-2">
-        <img src="./assets/tier1-hall.webp" alt="The Essential setup: flower wall and full chiffon draping in an event hall with guest seating" loading="lazy" />
-        <img src="./assets/tier2-wide.webp" alt="The Signature setup: flower wall with an ivory rug, candles and floral arrangements in a masjid prayer hall" loading="lazy" />
+        <img src="./assets/tier2-wide.webp" alt="The flower wall standing as a partition in a masjid prayer hall" loading="lazy" />
+        <img src="./assets/tier2-detail.webp" alt="Close detail of the candle accents and potted floral arrangement at the base of the wall" loading="lazy" />
       </div>
     </div>
   </section>
@@ -574,6 +583,7 @@ section{padding-block:var(--gap)}
 
       <div class="tiers">
         <article class="tier">
+          <img class="tier-shot" src="./assets/tier1-hall.webp" alt="The Essential setup: flower wall with full chiffon draping in an event hall" loading="lazy" />
           <p class="eyebrow">Essential</p>
           <div class="price-tag">
             <span class="amount">$175</span>
@@ -588,6 +598,7 @@ section{padding-block:var(--gap)}
         </article>
 
         <article class="tier tier-feature">
+          <img class="tier-shot" src="./assets/tier2-card.webp" alt="The Signature setup: the same wall with a white rug underfoot, candle accents and a floral arrangement" loading="lazy" />
           <p class="eyebrow">Signature</p>
           <div class="price-tag">
             <span class="amount">$225</span>
@@ -730,7 +741,7 @@ section{padding-block:var(--gap)}
   ------------------------------------------------------------ */
   var GALLERY_REPO = 'areeb-niaz/GTAFlowerWall';
   var GALLERY_DIR = 'assets';
-  var GALLERY_SKIP = /^logo\b/i;              // logo is not a gallery photo
+  var GALLERY_SKIP = /^logo\b|-card\./i;    // logo and card crops are not gallery photos
   var GALLERY_ROTATE_MS = 6000;               // 0 turns auto-rotation off
   var GALLERY_FALLBACK = [
     'tier2-offcenter.webp',
