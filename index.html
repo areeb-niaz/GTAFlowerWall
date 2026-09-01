@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GTA Flower Wall Rentals | Nikkah Partition Rental in Toronto</title>
+<title>Nikkah Partition &amp; Flower Wall Rental | Toronto &amp; the GTA</title>
 <meta name="description" content="A cascading floral partition wall for masjid nikkahs, weddings and events across Toronto and the GTA. Two packages, priced per day. Delivery, setup and takedown included." />
 <link rel="canonical" href="https://www.gtaflowerwall.ca/" />
 <meta property="og:title" content="GTA Flower Wall Rentals — Toronto and the GTA" />
@@ -65,8 +65,17 @@
       "https://www.gtaflowerwall.ca/assets/tier1-hall.webp"
     ],
     "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Greater Toronto Area" },
       { "@type": "City", "name": "Toronto" },
-      { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
+      { "@type": "City", "name": "Mississauga" },
+      { "@type": "City", "name": "Brampton" },
+      { "@type": "City", "name": "Markham" },
+      { "@type": "City", "name": "Vaughan" },
+      { "@type": "City", "name": "Richmond Hill" },
+      { "@type": "City", "name": "Oakville" },
+      { "@type": "City", "name": "Milton" },
+      { "@type": "City", "name": "Pickering" },
+      { "@type": "City", "name": "Ajax" }
     ]
   },
   "offers": {
@@ -385,6 +394,11 @@ section{padding-block:var(--gap)}
 .car-next{right:.85rem}
 @media (max-width:640px){ .car-nav{width:2.25rem; height:2.25rem} .car-prev{left:.5rem} .car-next{right:.5rem} }
 
+.car-cap{
+  margin-top:.75rem; text-align:center;
+  font-family:var(--mono); font-size:.66rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2);
+}
 .car-dots{display:flex; justify-content:center; gap:.5rem; margin-top:1.1rem}
 .car-dots button{
   width:.5rem; height:.5rem; padding:0; border-radius:50%; cursor:pointer;
@@ -789,6 +803,17 @@ section{padding-block:var(--gap)}
   var GALLERY_DIR = 'assets';
   var GALLERY_SKIP = /^logo\b|-card\./i;    // logo and card crops are not gallery photos
   var GALLERY_ROTATE_MS = 6000;               // 0 turns auto-rotation off
+  /* Where each photo was taken. A filename with no entry simply gets
+     no caption, so adding a photo to the repo still works. */
+  var GALLERY_CAP = {
+    'tier2-offcenter.webp': 'ISNA · Mississauga',
+    'tier2-wide.webp':      'ISNA · Mississauga',
+    'tier2-detail.webp':    'ISNA · Mississauga',
+    'tier1-masjid.webp':    'ISNA · Mississauga',
+    'nikkah-wall-wide.webp':'ISNA · Mississauga',
+    'flower-details.webp':  'ISNA · Mississauga',
+    'tier1-hall.webp':      'Boutique hall · Etobicoke'
+  };
   var GALLERY_ALT = {
     'tier2-offcenter.webp': 'The flower wall with chiffon draping, an ivory rug, candles and floral arrangements in a masjid prayer hall',
     'tier2-wide.webp':      'The flower wall standing as a partition in a masjid prayer hall',
@@ -1015,6 +1040,14 @@ section{padding-block:var(--gap)}
         img.loading = i === 0 ? 'eager' : 'lazy';
         img.draggable = false;
         slide.appendChild(img);
+
+        var cap = GALLERY_CAP[file];
+        if (cap) {
+          var capEl = document.createElement('p');
+          capEl.className = 'car-cap';
+          capEl.textContent = cap;
+          slide.appendChild(capEl);
+        }
         // Clicking a peeking neighbour brings it to the centre.
         slide.addEventListener('click', function () {
           if (swiped || i === index) { return; }
