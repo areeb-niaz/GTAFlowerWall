@@ -10,8 +10,21 @@
 <meta property="og:description" content="Nikkah partition and floral backdrop rental across Toronto and the GTA. Two packages, priced per day. Delivery, setup and takedown included." />
 <meta property="og:image" content="https://www.gtaflowerwall.ca/assets/tier2-offcenter.webp" />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.gtaflowerwall.ca/" />
+<meta property="og:site_name" content="GTA Flower Wall Rentals" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="2000" />
+<meta property="og:image:alt" content="A white cascading floral wall with chiffon draping, set up as a partition in a masjid prayer hall" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GTA Flower Wall Rentals — Toronto and the GTA" />
+<meta name="twitter:description" content="Nikkah partition and floral backdrop rental across Toronto and the GTA. Two packages, priced per day. Delivery, setup and takedown included." />
+<meta name="twitter:image" content="https://www.gtaflowerwall.ca/assets/tier2-offcenter.webp" />
+<meta name="twitter:image:alt" content="A white cascading floral wall with chiffon draping, set up as a partition in a masjid prayer hall" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <meta name="theme-color" content="#24382D" />
 <link rel="icon" href="./assets/logo.webp" />
+<link rel="preload" as="image" href="./assets/tier2-offcenter.webp" fetchpriority="high" />
 
 <!-- ══════════════════════════════════════════════════════════
      EDIT HERE — seasonal sale label
@@ -39,8 +52,22 @@
     "telephone": "+1-647-471-2148",
     "email": "team@gtaflowerwall.ca",
     "url": "https://www.gtaflowerwall.ca/",
-    "image": "https://www.gtaflowerwall.ca/assets/tier2-offcenter.webp",
-    "areaServed": { "@type": "City", "name": "Toronto" }
+    "priceRange": "$175-$250",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    },
+    "image": [
+      "https://www.gtaflowerwall.ca/assets/tier2-offcenter.webp",
+      "https://www.gtaflowerwall.ca/assets/tier2-wide.webp",
+      "https://www.gtaflowerwall.ca/assets/tier1-hall.webp"
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Toronto" },
+      { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
+    ]
   },
   "offers": {
     "@type": "AggregateOffer",
@@ -492,6 +519,7 @@ section{padding-block:var(--gap)}
       <a href="#service">Service</a>
       <a href="#pricing">Pricing</a>
       <a href="#gallery">Gallery</a>
+      <a href="./faq.html">FAQ</a>
       <a class="btn btn-primary" href="#book">Check your date</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
@@ -503,6 +531,7 @@ section{padding-block:var(--gap)}
     <a href="#service">Service</a>
     <a href="#pricing">Pricing</a>
     <a href="#gallery">Gallery</a>
+    <a href="./faq.html">FAQ</a>
     <a href="#book">Check your date</a>
   </nav>
 </header>
@@ -516,7 +545,7 @@ section{padding-block:var(--gap)}
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Nikkah partition · Toronto &amp; the GTA</p>
-        <h1>The partition your nikkah needs, and the backdrop your <em>photos</em> want.</h1>
+        <h1>The partition your nikkah needs, and the flower wall your <em>photos</em> want.</h1>
         <p class="lede">One cascading floral wall with soft chiffon draping, in two packages. We deliver it, set it up, and take it down the same day.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#book">Check your date</a>
@@ -529,7 +558,7 @@ section{padding-block:var(--gap)}
         </dl>
       </div>
       <div class="hero-art">
-        <img src="./assets/tier2-offcenter.webp" alt="White cascading floral wall with chiffon draping, an ivory rug, candles and a floral arrangement, set up in a masjid prayer hall" />
+        <img src="./assets/tier2-offcenter.webp" fetchpriority="high" alt="White cascading floral wall with chiffon draping, an ivory rug, candles and a floral arrangement, set up in a masjid prayer hall" />
         <div class="hero-card">
           <span class="eyebrow">Shown: Signature</span>
           <p>White cascading florals, chiffon drape to the floor, ivory rug underfoot, candle and floral accents.</p>
@@ -594,7 +623,7 @@ section{padding-block:var(--gap)}
 
       <div class="tiers">
         <article class="tier">
-          <img class="tier-shot" src="./assets/tier1-card.webp" alt="The Essential setup: flower wall with full chiffon draping in a masjid prayer hall" loading="lazy" />
+          <img class="tier-shot" src="./assets/tier1-hall.webp" alt="The Essential setup: the flower wall with full chiffon draping, dividing a banquet hall set with gold chiavari chairs" loading="lazy" />
           <div class="tier-head"><p class="eyebrow">Essential</p></div>
           <div class="price-tag">
             <span class="amount">$175</span>
@@ -726,6 +755,7 @@ section{padding-block:var(--gap)}
     <div class="foot-links">
       <a href="mailto:team@gtaflowerwall.ca">team@gtaflowerwall.ca</a>
       <a href="tel:+16474712148">647-471-2148</a>
+      <a href="./faq.html">FAQ</a>
       <a href="#book">Book</a>
     </div>
   </div>
@@ -759,6 +789,15 @@ section{padding-block:var(--gap)}
   var GALLERY_DIR = 'assets';
   var GALLERY_SKIP = /^logo\b|-card\./i;    // logo and card crops are not gallery photos
   var GALLERY_ROTATE_MS = 6000;               // 0 turns auto-rotation off
+  var GALLERY_ALT = {
+    'tier2-offcenter.webp': 'The flower wall with chiffon draping, an ivory rug, candles and floral arrangements in a masjid prayer hall',
+    'tier2-wide.webp':      'The flower wall standing as a partition in a masjid prayer hall',
+    'tier2-detail.webp':    'Close detail of the candle accents and potted floral arrangement at the base of the wall',
+    'tier1-hall.webp':      'The flower wall dividing a banquet hall set with gold chiavari chairs and long tables',
+    'tier1-masjid.webp':    'The flower wall beside a decorated nikkah chair in a masjid hall, under Arabic calligraphy',
+    'nikkah-wall-wide.webp':'The flower wall as a nikkah partition in a masjid hall lined with rows of chairs',
+    'flower-details.webp':  'Close view of the pink and white floral garland along the top of the wall, beneath a masjid dome and chandelier'
+  };
   var GALLERY_FALLBACK = [
     'tier2-offcenter.webp',
     'tier2-wide.webp',
@@ -972,7 +1011,7 @@ section{padding-block:var(--gap)}
 
         var img = document.createElement('img');
         img.src = './' + GALLERY_DIR + '/' + encodeURIComponent(file);
-        img.alt = 'The flower wall set up for an event';
+        img.alt = GALLERY_ALT[file] || 'The flower wall set up for an event';
         img.loading = i === 0 ? 'eager' : 'lazy';
         img.draggable = false;
         slide.appendChild(img);
