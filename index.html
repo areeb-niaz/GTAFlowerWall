@@ -13,6 +13,8 @@
 
   gtag('config', 'G-F6WPLRNJF5');
 </script>
+<!-- Conversion tracking. Must load after gtag so window.gfwTrack is ready. -->
+<script src="./assets/track.js"></script>
 <title>Nikkah Partition &amp; Flower Wall Rental | Toronto &amp; the GTA</title>
 <meta name="description" content="A cascading floral partition wall for masjid nikkahs, weddings and events across Toronto and the GTA. Two packages, priced per day. Delivery, setup and takedown included." />
 <link rel="canonical" href="https://www.gtaflowerwall.ca/" />
@@ -567,7 +569,7 @@ section{padding-block:var(--gap)}
 <main id="top">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" data-track-area="hero">
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Nikkah partition · Toronto &amp; the GTA</p>
@@ -957,7 +959,10 @@ section{padding-block:var(--gap)}
         btn.disabled = new Date(y, m, day) < today;
         btn.setAttribute('aria-pressed', String(value === selected));
         btn.setAttribute('aria-label', MONTHS[m] + ' ' + day + ', ' + y);
-        btn.addEventListener('click', function () { select(value); });
+        btn.addEventListener('click', function () {
+          select(value);
+          trackDate(value, 'calendar');
+        });
         daysEl.appendChild(btn);
       })(d);
     }
@@ -983,7 +988,12 @@ section{padding-block:var(--gap)}
   }
 
   dateInput.addEventListener('change', function () {
-    if (dateInput.value) { select(dateInput.value); } else { clearDate(); }
+    if (dateInput.value) {
+      select(dateInput.value);
+      trackDate(dateInput.value, 'date_field');
+    } else {
+      clearDate();
+    }
   });
 
   renderMonths();
@@ -1138,6 +1148,28 @@ section{padding-block:var(--gap)}
       .catch(function () { build(GALLERY_FALLBACK); });
   })();
 
+  /* ── analytics helpers ────────────────────────────────── */
+  /* assets/track.js handles clicks and FAQ opens on its own.
+     These two cover what only this script can see: the date
+     someone picked, and how the booking request ended up. */
+  function track(name, params) {
+    if (window.gfwTrack) { window.gfwTrack(name, params); }
+  }
+
+  // Whole days between today and the event, so the reports can
+  // separate next-weekend panic from a booking six months out.
+  function daysOut(value) {
+    var when = Date.parse(value + 'T00:00:00');
+    if (isNaN(when)) { return null; }
+    var now = new Date();
+    now.setHours(0, 0, 0, 0);
+    return Math.round((when - now.getTime()) / 86400000);
+  }
+
+  function trackDate(value, source) {
+    track('select_event_date', { source: source, days_out: daysOut(value) });
+  }
+
   /* ── form ─────────────────────────────────────────────── */
   var form = $('#bookingForm'), msg = $('#formMsg'), submitBtn = $('#submitBtn');
 
@@ -1154,11 +1186,22 @@ section{padding-block:var(--gap)}
       say('Add your name, email and event date so we can check availability.', 'err');
       var bad = form.querySelector(':invalid');
       if (bad) { bad.focus(); }
+      track('booking_form_error', {
+        error_type: 'validation',
+        field: bad ? (bad.name || bad.id) : ''
+      });
       return;
     }
 
     var data = new FormData(form);
     var get = function (k) { return (data.get(k) || '').toString().trim(); };
+
+    var lead = {
+      package_choice: get('tier'),
+      days_out: daysOut(get('date')),
+      has_phone: get('phone') ? 'yes' : 'no',
+      has_venue: get('venue') ? 'yes' : 'no'
+    };
 
     if (FORM_ENDPOINT) {
       submitBtn.disabled = true;
@@ -1166,11 +1209,14 @@ section{padding-block:var(--gap)}
       fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
         .then(function (res) {
           if (!res.ok) { throw new Error('Request failed: ' + res.status); }
+          lead.method = 'booking_form';
+          track('generate_lead', lead);
           form.reset();
           clearDate();
           say('Request sent. We will reply with availability for your date.', 'ok');
         })
         .catch(function () {
+          track('booking_form_error', { error_type: 'send_failed', field: '' });
           say('That did not go through. Call or text 647-471-2148 and we will take the details.', 'err');
         })
         .then(function () {
@@ -1192,6 +1238,9 @@ section{padding-block:var(--gap)}
       'Notes:',
       get('notes')
     ].join('\n');
+
+    lead.method = 'mailto';
+    track('generate_lead', lead);
 
     window.location.href = 'mailto:' + CONTACT_EMAIL +
       '?subject=' + encodeURIComponent('Booking request — ' + get('date')) +
