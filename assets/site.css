@@ -1,0 +1,224 @@
+/* ──────────────────────────────────────────────────────────
+   Shared by every page: tokens, type, buttons, header, footer,
+   and the pieces more than one page uses (price cards, spec
+   lists, FAQ accordions, product layout). Page-only styles stay
+   in that page's own <style> block.
+   ────────────────────────────────────────────────────────── */
+
+/* ── tokens ─────────────────────────────────────────────── */
+:root{
+  color-scheme: light;
+  --ink:#14201A;
+  --moss:#24382D;
+  --moss-2:#31513E;
+  --sage:#8CA894;
+  --blush:#E7B9BC;
+  --blush-2:#F6E6E5;
+  --ivory:#F7F4EE;
+  --paper:#FFFFFF;
+  --rule:rgba(20,32,26,.13);
+  --rule-strong:rgba(20,32,26,.28);
+
+  --display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --body:"Karla",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(1.25rem,4vw,2.5rem);
+  --gap:clamp(2.5rem,6vw,5rem);
+  --max:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ivory); color:var(--ink);
+  font-family:var(--body); font-size:clamp(1rem,.97rem + .18vw,1.0625rem);
+  line-height:1.65; letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--moss); outline-offset:3px; border-radius:2px}
+
+/* ── type ───────────────────────────────────────────────── */
+h1,h2,h3{font-family:var(--display); font-weight:400; letter-spacing:-.01em; margin:0}
+h1{font-size:clamp(2.6rem,1.6rem + 4.4vw,5rem); line-height:1.02}
+h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.1rem); line-height:1.08}
+h3{font-size:1.3rem; line-height:1.25}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1rem + .4vw,1.25rem); line-height:1.6; color:#3A4A41; max-width:52ch}
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--moss-2);
+}
+.section-head{margin-top:.9rem}
+.section-lede{margin-top:1rem}
+
+/* ── layout ─────────────────────────────────────────────── */
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--pad)}
+section{padding-block:var(--gap)}
+.rule-top{border-top:1px solid var(--rule)}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:start}
+@media (max-width:860px){ .split{grid-template-columns:1fr} }
+
+/* ── buttons ────────────────────────────────────────────── */
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:var(--body); font-weight:600; font-size:.95rem;
+  padding:.85rem 1.5rem; border-radius:999px; border:1px solid transparent;
+  text-decoration:none; cursor:pointer;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.btn-primary{background:var(--moss); color:var(--ivory)}
+.btn-primary:hover{background:var(--ink)}
+.btn-primary:disabled{opacity:.6; cursor:default}
+.btn-ghost{border-color:var(--rule-strong); color:var(--ink); background:transparent}
+.btn-ghost:hover{background:rgba(36,56,45,.06)}
+.btn:active{transform:translateY(1px)}
+.actions{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem}
+
+/* ── header ─────────────────────────────────────────────── */
+.sticky-top{position:sticky; top:0; z-index:50}
+.site-head{
+  background:rgba(247,244,238,.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.head-in{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-block:.85rem}
+.brand{display:flex; align-items:center; gap:.7rem; text-decoration:none}
+.brand img{height:56px; width:56px; border-radius:50%; object-fit:cover}
+.brand b{font-family:var(--display); font-weight:400; font-size:1.18rem; letter-spacing:-.01em; line-height:1.1}
+.brand small{display:block; font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2)}
+.nav{display:flex; align-items:center; gap:1.75rem}
+.nav a{font-size:.92rem; text-decoration:none; color:#3A4A41; transition:color .15s ease}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--ink)}
+.nav .btn{padding:.6rem 1.15rem; font-size:.88rem; color:var(--ivory)}
+.menu-btn{display:none; background:none; border:1px solid var(--rule-strong); border-radius:10px; padding:.5rem .6rem; cursor:pointer; color:var(--ink)}
+.mobile-nav{display:none; border-top:1px solid var(--rule); background:var(--ivory)}
+.mobile-nav a{display:block; padding:.7rem var(--pad); text-decoration:none; border-bottom:1px solid var(--rule)}
+.mobile-nav a:last-child{border-bottom:0; color:var(--moss); font-weight:600}
+@media (max-width:860px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-nav.open{display:block}
+}
+
+/* ── page head (inner pages) ────────────────────────────── */
+.page-head{padding-block:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,3vw,2.5rem)}
+.page-head h1{margin-top:1.1rem; font-size:clamp(2.4rem,1.6rem + 3.4vw,4rem); line-height:1.04}
+.page-head .lede{margin-top:1.3rem}
+
+/* ── spec list ──────────────────────────────────────────── */
+.spec{margin:2rem 0 0; border-top:1px solid var(--rule-strong)}
+.spec-row{display:grid; grid-template-columns:8.5rem 1fr; gap:1.25rem; padding:1.1rem 0; border-bottom:1px solid var(--rule)}
+.spec-row dt{font-family:var(--mono); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--moss-2); padding-top:.2rem}
+.spec-row dd{margin:0; font-size:.98rem}
+@media (max-width:520px){ .spec-row{grid-template-columns:1fr; gap:.3rem} }
+
+/* ── price cards ────────────────────────────────────────── */
+.tiers{
+  display:grid; grid-template-columns:1fr 1fr; align-items:start;
+  gap:clamp(1.25rem,3vw,2rem); margin-top:2.75rem;
+}
+@media (max-width:860px){
+  .tiers{grid-template-columns:1fr}
+  /* Stacked, Signature would fall below the fold, so it leads on phones.
+     Side by side the cheap-to-dear reading order is the right one. */
+  .tier-feature{order:-1}
+}
+.tier{
+  --tier-pad:clamp(1.5rem,3vw,2.25rem);
+  display:flex; flex-direction:column;
+  background:var(--paper); border:1px solid var(--rule); border-radius:2px;
+  padding:var(--tier-pad);
+}
+/* Full-bleed to the card edge, so the photo reads as the card's lid
+   rather than a picture sitting inside it. */
+.tier-shot{
+  width:calc(100% + 2 * var(--tier-pad));
+  margin:calc(-1 * var(--tier-pad)) calc(-1 * var(--tier-pad)) 1.6rem;
+  aspect-ratio:4/3; object-fit:cover; object-position:50% 42%;
+  background:var(--ivory); border-radius:2px 2px 0 0;
+}
+/* Both cards share the same hairline edge. Signature is lifted by its
+   shadow and its filled button, not by a heavier border. */
+.tier-feature{box-shadow:0 14px 36px rgba(20,32,26,.08)}
+.tier-head{display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap}
+.tier-badge{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--moss); background:var(--blush-2); border-radius:999px; padding:.32rem .7rem;
+}
+.tier .price-tag{margin-top:.9rem}
+.tier .price-tag .amount{font-size:clamp(2.6rem,1.8rem + 3vw,3.5rem)}
+.tier .incl{margin-top:1.6rem}
+.tier .btn{margin-top:1.9rem; align-self:flex-start}
+@media (max-width:860px){ .tier .btn{align-self:stretch; justify-content:center} }
+.price-tag{display:flex; align-items:baseline; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem}
+.price-tag .amount{font-family:var(--mono); font-size:clamp(3.2rem,2rem + 5vw,4.75rem); letter-spacing:-.04em; line-height:1}
+.price-tag .unit{font-family:var(--mono); font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-2)}
+.incl{margin:0; padding:0; list-style:none; border-top:1px solid var(--rule)}
+.incl li{display:flex; gap:.9rem; align-items:baseline; padding:.8rem 0; border-bottom:1px solid var(--rule); font-size:.97rem}
+.incl li::before{content:"—"; font-family:var(--mono); color:var(--blush); flex:none}
+.note{margin-top:1.25rem; font-size:.86rem; color:#5B6B61}
+
+/* ── product pages (mirror, sign) ───────────────────────── */
+.product{
+  display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,5vw,4rem); align-items:start;
+  padding-block:clamp(2.5rem,6vw,4.5rem) var(--gap);
+}
+.product h1{margin-top:1rem; font-size:clamp(2.2rem,1.5rem + 3vw,3.6rem); line-height:1.05}
+.product .lede{margin-top:1.2rem}
+.product-art{margin:0; position:sticky; top:7rem}
+.product-art img{width:100%; aspect-ratio:2/3; object-fit:cover; border:1px solid var(--rule); border-radius:2px}
+.product-art figcaption{margin-top:.7rem; font-size:.82rem; color:#5B6B61}
+.prices{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.75rem}
+.price-box{background:var(--paper); border:1px solid var(--rule); border-radius:2px; padding:1.1rem 1.25rem 1.2rem}
+.price-box .amount{display:block; font-family:var(--mono); font-size:2.3rem; letter-spacing:-.03em; line-height:1; margin-top:.55rem}
+.price-box p{margin-top:.6rem; font-size:.9rem; line-height:1.5; color:#3A4A41}
+@media (max-width:860px){
+  .product{grid-template-columns:1fr}
+  /* Headline and prices first on a phone: this is an ad landing page. */
+  .product-copy{order:-1}
+  .product-art{position:static}
+  .product-art img{aspect-ratio:4/5}
+}
+@media (max-width:520px){ .prices{grid-template-columns:1fr} }
+
+/* ── faq accordions ─────────────────────────────────────── */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem;
+  padding:1.15rem 0; cursor:pointer; list-style:none;
+  font-family:var(--display); font-size:clamp(1.15rem,1.05rem + .35vw,1.4rem);
+  line-height:1.3; transition:color .15s ease;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--moss-2)}
+/* The chevron is drawn in CSS so the markup stays plain text. */
+.faq summary::after{
+  content:""; flex:none; width:.62rem; height:.62rem; margin-top:.5rem;
+  border-right:1.5px solid var(--moss-2); border-bottom:1.5px solid var(--moss-2);
+  transform:rotate(45deg); transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq .answer{padding:0 0 1.35rem; max-width:64ch; color:#3A4A41}
+.faq .answer p + p{margin-top:.9rem}
+.faq .answer a{color:var(--moss-2)}
+
+/* ── closing call to action ─────────────────────────────── */
+.cta-band{background:var(--blush-2)}
+.cta-band .inner{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem}
+.cta-band h2{max-width:22ch; font-size:clamp(1.6rem,1.3rem + 1.2vw,2.1rem); line-height:1.12}
+.cta-band .actions{margin-top:0}
+
+/* ── footer ─────────────────────────────────────────────── */
+.site-foot{border-top:1px solid var(--rule); padding-block:2.25rem; font-size:.85rem; color:#5B6B61}
+.foot-in{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem}
+.foot-in a{text-decoration:none}
+.foot-in a:hover{color:var(--ink)}
+.foot-links{display:flex; flex-wrap:wrap; gap:1.25rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
