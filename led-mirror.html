@@ -16,8 +16,8 @@
 <!-- Conversion tracking. Must load after gtag so window.gfwTrack is ready. -->
 <script src="./assets/track.js"></script>
 <script src="./assets/site.js" defer></script>
-<title>LED Arch Welcome Mirror Rental | Mississauga &amp; Brampton</title>
-<meta name="description" content="A 20-inch-wide LED arch welcome mirror with your names and date in vinyl. No outlet needed. $275 delivered in Mississauga and Brampton, or $200 added to a wall booking." />
+<title>LED Arch Welcome Mirror Rental | Mississauga, Brampton &amp; the GTA</title>
+<meta name="description" content="A 20-inch-wide LED arch welcome mirror with your names and date in vinyl. No outlet needed. $200 added to a wall booking, or $225 on its own plus delivery, with setup and takedown included." />
 <link rel="canonical" href="https://www.gtaflowerwall.ca/led-mirror.html" />
 <meta property="og:title" content="LED Arch Welcome Mirror Rental — GTA Flower Wall" />
 <meta property="og:description" content="20 inches wide, lit, with your names and date. Runs on a portable power station, so no outlet is needed." />
@@ -43,7 +43,8 @@
   "image": "https://www.gtaflowerwall.ca/assets/welcome-mirror-sign.webp",
   "areaServed": [
     { "@type": "City", "name": "Mississauga" },
-    { "@type": "City", "name": "Brampton" }
+    { "@type": "City", "name": "Brampton" },
+    { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
   ],
   "provider": {
     "@type": "LocalBusiness",
@@ -53,7 +54,7 @@
   },
   "offers": [
     { "@type": "Offer", "name": "Added to a wall booking", "price": "200.00", "priceCurrency": "CAD" },
-    { "@type": "Offer", "name": "On its own", "price": "275.00", "priceCurrency": "CAD" }
+    { "@type": "Offer", "name": "On its own, plus delivery", "price": "225.00", "priceCurrency": "CAD" }
   ]
 }
 </script>
@@ -62,6 +63,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/site.css">
+
+<style>
+.shots{display:grid; grid-template-columns:1fr 1fr; gap:clamp(1rem,2.5vw,1.5rem); padding-bottom:var(--gap)}
+.shots figure{margin:0}
+.shots img{width:100%; aspect-ratio:3/4; object-fit:cover; border:1px solid var(--rule); border-radius:2px}
+.shots figcaption{margin-top:.6rem; font-size:.88rem; color:#5B6B61}
+@media (max-width:560px){ .shots{grid-template-columns:1fr} }
+</style>
 </head>
 <body>
 
@@ -75,7 +84,7 @@
     <nav class="nav">
       <a href="./menu.html">Pricing</a>
       <a href="./led-mirror.html" aria-current="page">LED mirror</a>
-      <a href="./welcome-sign.html">Welcome sign</a>
+      <a href="./welcome-sign.html">Welcome signs</a>
       <a href="./faq.html">FAQ</a>
       <a class="btn btn-primary" href="./?item=mirror#book">Check your date</a>
     </nav>
@@ -86,7 +95,7 @@
   <nav class="mobile-nav" id="mobileNav">
     <a href="./menu.html">Pricing</a>
     <a href="./led-mirror.html" aria-current="page">LED mirror</a>
-    <a href="./welcome-sign.html">Welcome sign</a>
+    <a href="./welcome-sign.html">Welcome signs</a>
     <a href="./faq.html">FAQ</a>
     <a href="./?item=mirror#book">Check your date</a>
   </nav>
@@ -102,7 +111,7 @@
     </figure>
 
     <div class="product-copy">
-      <p class="eyebrow">LED arch welcome mirror · Mississauga &amp; Brampton</p>
+      <p class="eyebrow">LED arch welcome mirror · Mississauga &amp; the GTA</p>
       <h1>Your names, framed in a soft LED glow.</h1>
       <p class="lede">A full-length arch mirror ringed in LED light, with your names and date lettered across the glass. It is the first thing guests see when they walk in, and the picture everyone stops for. We bring it styled, set it up, and take it down the same night.</p>
 
@@ -114,8 +123,8 @@
         </div>
         <div class="price-box">
           <span class="eyebrow">On its own</span>
-          <span class="amount">$275</span>
-          <p>In Mississauga and Brampton. Further out, one price with travel.</p>
+          <span class="amount">$225</span>
+          <p>Plus delivery, quoted by city. Setup and takedown included.</p>
         </div>
       </div>
 
@@ -125,7 +134,7 @@
         <div class="spec-row"><dt>Power</dt><dd>Runs on its own portable power station. No outlet or extension cord, so it can stand anywhere.</dd></div>
         <div class="spec-row"><dt>Lettering</dt><dd>Your names and date, cut in vinyl for your day.</dd></div>
         <div class="spec-row"><dt>Styling</dt><dd>Florals, LED pillar candles, a gold lantern, greenery and draped chiffon at the base. Always included.</dd></div>
-        <div class="spec-row"><dt>Included</dt><dd>Delivery, setup and takedown at the end of the night.</dd></div>
+        <div class="spec-row"><dt>Included</dt><dd>Setup, and takedown at the end of the night. On its own, delivery is quoted by city.</dd></div>
       </dl>
 
       <div class="actions">
@@ -134,6 +143,17 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="wrap shots">
+    <figure>
+      <img src="./assets/welcome-mirror-outdoor.webp" loading="lazy" alt="The LED arch welcome mirror on the lawn at an outdoor ceremony, beside white florals and a lantern" />
+      <figcaption>Outdoors, with no outlet anywhere near it.</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/welcome-mirror-selfie.webp" loading="lazy" alt="A guest taking a mirror selfie in the LED arch welcome mirror at a venue entrance" />
+      <figcaption>The photo guests stop for on the way in.</figcaption>
+    </figure>
   </div>
 </main>
 

@@ -16,14 +16,12 @@
 <!-- Conversion tracking. Must load after gtag so window.gfwTrack is ready. -->
 <script src="./assets/track.js"></script>
 <script src="./assets/site.js" defer></script>
-<title>Custom Welcome Sign &amp; Easel | Mississauga Wedding Signs</title>
-<meta name="description" content="A custom 24 x 36 printed welcome sign on a wooden easel. $125 styled and set up with a wall or mirror booking, or $140 to keep with pickup in Mississauga." />
+<title>Custom Welcome Sign Rental | Linen &amp; Foam Board Signs in Mississauga</title>
+<meta name="description" content="Custom welcome signs for nikkahs and weddings: a linen sign draped on a gold frame from $200, or a 24 x 36 foam board on an easel from $125. Styled, with setup and takedown included." />
 <link rel="canonical" href="https://www.gtaflowerwall.ca/welcome-sign.html" />
-<meta property="og:title" content="Custom Welcome Sign &amp; Easel — GTA Flower Wall" />
-<meta property="og:description" content="A 24 x 36 printed welcome sign on a wooden easel. Styled with your booking, and the board is yours to keep." />
-<meta property="og:image" content="https://www.gtaflowerwall.ca/assets/welcome-easel-sign.webp" />
-<meta property="og:image:width" content="1024" />
-<meta property="og:image:height" content="1536" />
+<meta property="og:title" content="Custom Welcome Signs — GTA Flower Wall" />
+<meta property="og:description" content="A linen sign on a gold frame or a foam board on an easel, styled at the entrance. You keep the linen or the board." />
+<meta property="og:image" content="https://www.gtaflowerwall.ca/assets/welcome-linen-sign.webp" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.gtaflowerwall.ca/welcome-sign.html" />
 <meta property="og:site_name" content="GTA Flower Wall Rentals" />
@@ -34,31 +32,49 @@
 <link rel="icon" href="./assets/logo.webp" />
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Custom Foam Board Welcome Sign & Easel",
-  "serviceType": "Wedding welcome sign",
-  "url": "https://www.gtaflowerwall.ca/welcome-sign.html",
-  "image": "https://www.gtaflowerwall.ca/assets/welcome-easel-sign.webp",
-  "areaServed": { "@type": "City", "name": "Mississauga" },
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "GTA Flower Wall Rentals",
-    "telephone": "+1-647-471-2148",
-    "url": "https://www.gtaflowerwall.ca/"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Linen Welcome Sign",
+    "serviceType": "Wedding welcome sign",
+    "url": "https://www.gtaflowerwall.ca/welcome-sign.html#linen",
+    "image": "https://www.gtaflowerwall.ca/assets/welcome-linen-sign.webp",
+    "areaServed": { "@type": "AdministrativeArea", "name": "Greater Toronto Area" },
+    "provider": { "@type": "LocalBusiness", "name": "GTA Flower Wall Rentals", "telephone": "+1-647-471-2148", "url": "https://www.gtaflowerwall.ca/" },
+    "offers": [
+      { "@type": "Offer", "name": "Added to a wall booking", "price": "200.00", "priceCurrency": "CAD" },
+      { "@type": "Offer", "name": "On its own, plus delivery", "price": "250.00", "priceCurrency": "CAD" }
+    ]
   },
-  "offers": [
-    { "@type": "Offer", "name": "Styled, added to a booking", "price": "125.00", "priceCurrency": "CAD" },
-    { "@type": "Offer", "name": "To keep, pickup in Mississauga", "price": "140.00", "priceCurrency": "CAD" }
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Custom Foam Board Welcome Sign & Easel",
+    "serviceType": "Wedding welcome sign",
+    "url": "https://www.gtaflowerwall.ca/welcome-sign.html#foam-board",
+    "image": "https://www.gtaflowerwall.ca/assets/welcome-easel-sign.webp",
+    "areaServed": { "@type": "AdministrativeArea", "name": "Greater Toronto Area" },
+    "provider": { "@type": "LocalBusiness", "name": "GTA Flower Wall Rentals", "telephone": "+1-647-471-2148", "url": "https://www.gtaflowerwall.ca/" },
+    "offers": [
+      { "@type": "Offer", "name": "Added to a wall booking", "price": "125.00", "priceCurrency": "CAD" },
+      { "@type": "Offer", "name": "Delivered on its own, plus delivery", "price": "140.00", "priceCurrency": "CAD" },
+      { "@type": "Offer", "name": "Pickup in Mississauga, to keep", "price": "140.00", "priceCurrency": "CAD" }
+    ]
+  }
+]
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/site.css">
+
+<style>
+/* Two products on one page, so each gets an h2 under the page's h1. */
+.product h2{font-size:clamp(1.9rem,1.4rem + 2vw,2.8rem)}
+.product + .product{border-top:1px solid var(--rule)}
+</style>
 </head>
 <body>
 
@@ -72,9 +88,9 @@
     <nav class="nav">
       <a href="./menu.html">Pricing</a>
       <a href="./led-mirror.html">LED mirror</a>
-      <a href="./welcome-sign.html" aria-current="page">Welcome sign</a>
+      <a href="./welcome-sign.html" aria-current="page">Welcome signs</a>
       <a href="./faq.html">FAQ</a>
-      <a class="btn btn-primary" href="./?item=sign#book">Check your date</a>
+      <a class="btn btn-primary" href="./#book">Check your date</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
@@ -83,44 +99,93 @@
   <nav class="mobile-nav" id="mobileNav">
     <a href="./menu.html">Pricing</a>
     <a href="./led-mirror.html">LED mirror</a>
-    <a href="./welcome-sign.html" aria-current="page">Welcome sign</a>
+    <a href="./welcome-sign.html" aria-current="page">Welcome signs</a>
     <a href="./faq.html">FAQ</a>
-    <a href="./?item=sign#book">Check your date</a>
+    <a href="./#book">Check your date</a>
   </nav>
 </header>
 </div><!-- /.sticky-top -->
 
 <main id="top">
-  <div class="wrap product" data-track-area="welcome_sign">
 
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Welcome signs · Mississauga &amp; the GTA</p>
+      <h1>A custom welcome sign you keep after the day.</h1>
+      <p class="lede">Two styles for your nikkah, katb ktaab or wedding, both with your names and date and styled at the entrance. Setup and takedown are included.</p>
+    </div>
+  </section>
+
+  <div class="wrap product" id="linen" data-track-area="linen_sign">
     <figure class="product-art">
-      <img src="./assets/welcome-easel-sign.webp" fetchpriority="high" alt="A printed welcome sign with names and a date on a wooden easel, styled with draped chiffon, greenery, florals, LED candles and a gold lantern" />
-      <figcaption>Shown styled, as it arrives with a booking. Sample names and date.</figcaption>
+      <img src="./assets/welcome-linen-sign.webp" alt="A linen welcome sign with names and a date, draped on a gold frame with satin bows and florals at its base" />
+      <figcaption>Sample names and date.</figcaption>
     </figure>
 
     <div class="product-copy">
-      <p class="eyebrow">Foam board welcome sign · Mississauga</p>
-      <h1>A custom welcome sign you keep after the day.</h1>
-      <p class="lede">A 24 × 36 printed board with your names and date, on a wooden easel at the entrance. Add it to your booking, or buy it and pick it up.</p>
+      <p class="eyebrow">Linen welcome sign</p>
+      <h2>Draped linen on a 5 ft gold frame.</h2>
+      <p class="lede">Soft linen hung from a gold frame and pooled on the floor, with your names and date across the fabric. It reads as a full-height piece, not a sign on a stick.</p>
 
       <div class="prices">
         <div class="price-box">
-          <span class="eyebrow">With a booking</span>
-          <span class="amount">+$125</span>
-          <p>Styled and set up with your wall or mirror. We take the easel back; the board is yours.</p>
+          <span class="eyebrow">With a wall booking</span>
+          <span class="amount">+$200</span>
+          <p>Styled and set up with your wall.</p>
         </div>
         <div class="price-box">
-          <span class="eyebrow">To keep</span>
+          <span class="eyebrow">On its own</span>
+          <span class="amount">$250</span>
+          <p>Plus delivery, quoted by city. Setup and takedown included.</p>
+        </div>
+      </div>
+
+      <dl class="spec">
+        <div class="spec-row"><dt>Size</dt><dd>A 5 ft × 2 ft gold frame, with the linen draped over the top and pooled at the base.</dd></div>
+        <div class="spec-row"><dt>Keepsake</dt><dd>The lettered linen panel is yours to keep. The frame comes back at takedown.</dd></div>
+        <div class="spec-row"><dt>Styling</dt><dd>Florals, LED pillar candles, a gold lantern, greenery and chiffon at the base. Always included.</dd></div>
+      </dl>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="./?item=linen#book">Check your date</a>
+        <a class="btn btn-ghost" href="./menu.html">See the full menu</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap product" id="foam-board" data-track-area="welcome_sign">
+    <figure class="product-art">
+      <img src="./assets/welcome-easel-sign.webp" loading="lazy" alt="A printed welcome sign with names and a date on a wooden easel, styled with draped chiffon, greenery, florals, LED candles and a gold lantern" />
+      <figcaption>Shown styled, as it arrives set up. Sample names and date.</figcaption>
+    </figure>
+
+    <div class="product-copy">
+      <p class="eyebrow">Foam board welcome sign</p>
+      <h2>A printed board on a wooden easel.</h2>
+      <p class="lede">A 24 × 36 printed board with your names and date, set on a wooden easel at the entrance. The board is yours after the day.</p>
+
+      <div class="prices">
+        <div class="price-box">
+          <span class="eyebrow">With a wall booking</span>
+          <span class="amount">+$125</span>
+          <p>Styled and set up with your wall.</p>
+        </div>
+        <div class="price-box">
+          <span class="eyebrow">Delivered</span>
           <span class="amount">$140</span>
-          <p>The board and a flat-pack easel, both yours. Pickup in Mississauga, not styled.</p>
+          <p>Plus delivery, quoted by city. Styled and set up.</p>
+        </div>
+        <div class="price-box">
+          <span class="eyebrow">Pickup</span>
+          <span class="amount">$140</span>
+          <p>Board and flat-pack easel to keep. Mississauga, not styled.</p>
         </div>
       </div>
 
       <dl class="spec">
         <div class="spec-row"><dt>Size</dt><dd>24 × 36 inch printed foam board.</dd></div>
-        <div class="spec-row"><dt>Keepsake</dt><dd>Printed with your names and date, and yours after the event.</dd></div>
-        <div class="spec-row"><dt>Styling</dt><dd>With a booking: florals, LED pillar candles, a gold lantern, greenery and draped chiffon at the base.</dd></div>
-        <div class="spec-row"><dt>Delivery</dt><dd>Comes with a wall or mirror booking. On its own, it is a pickup in Mississauga.</dd></div>
+        <div class="spec-row"><dt>Easel</dt><dd>When we set it up, the wooden easel comes back at takedown. With pickup, the flat-pack easel is yours too.</dd></div>
+        <div class="spec-row"><dt>Styling</dt><dd>Florals, LED pillar candles, a gold lantern, greenery and chiffon at the base whenever we set it up.</dd></div>
       </dl>
 
       <div class="actions">
@@ -128,8 +193,8 @@
         <a class="btn btn-ghost" href="./menu.html">See the full menu</a>
       </div>
     </div>
-
   </div>
+
 </main>
 
 <footer class="site-foot">
