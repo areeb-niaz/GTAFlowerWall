@@ -1164,20 +1164,35 @@
     };
 
     if (FORM_ENDPOINT) {
+      // Formspree validates any field named email, so a phone-only
+      // request must not send it blank.
+      if (!get('email')) { data.delete('email'); }
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending';
       fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
         .then(function (res) {
-          if (!res.ok) { throw new Error('Request failed: ' + res.status); }
+          if (res.ok) { return; }
+          // Keep Formspree's reason (e.g. http_422_TYPE_EMAIL) so the
+          // error event in GA4 says why the send failed, not just that it did.
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            var first = body && body.errors && body.errors[0];
+            var err = new Error('Request failed: ' + res.status);
+            err.reason = 'http_' + res.status + (first && first.code ? '_' + first.code : '');
+            throw err;
+          });
+        })
+        .then(function () {
           lead.method = 'booking_form';
           track('generate_lead', lead);
           form.reset();
           clearDate();
           say('Request sent. We will reply with availability for your date.', 'ok');
         })
-        .catch(function () {
-          track('booking_form_error', { error_type: 'send_failed', field: '' });
-          say('That did not go through. Call or text 647-471-2148 and we will take the details.', 'err');
+        .catch(function (err) {
+          // No reason means the request never reached Formspree:
+          // offline, or blocked by a browser extension.
+          track('booking_form_error', { error_type: 'send_failed', field: (err && err.reason) || 'network' });
+          say('That did not go through. Call or text 647-471-2148 or email ' + CONTACT_EMAIL + ' and we will take the details.', 'err');
         })
         .then(function () {
           submitBtn.disabled = false;
