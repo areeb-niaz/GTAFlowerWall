@@ -222,3 +222,62 @@ section{padding-block:var(--gap)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
 }
+
+/* ── chat widget (n8n, mounted by assets/chat.js) ───────── */
+#n8n-chat{
+  --chat--color--primary:#24382D;
+  --chat--color--primary--shade-50:#1C2D23;
+  --chat--color--primary--shade-100:#14201A;
+  --chat--color--secondary:#31513E;
+  --chat--color-secondary-shade-50:#24382D;
+  --chat--font-family:"Karla",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --chat--border-radius:.75rem;
+  --chat--transition-duration:.2s;
+
+  --chat--window--width:400px;
+  --chat--window--height:600px;
+  --chat--window--border:1px solid rgba(20,32,26,.13);
+  --chat--window--border-radius:1rem;
+
+  --chat--body--background:#F7F4EE;
+  --chat--header--background:#24382D;
+  --chat--header--color:#F7F4EE;
+  --chat--header--border-bottom:none;
+  --chat--footer--background:#FFFFFF;
+  --chat--footer--color:#3A4A41;
+  --chat--footer--border-top:1px solid rgba(20,32,26,.13);
+
+  --chat--message--font-size:.9375rem;
+  --chat--message--border-radius:1rem;
+  --chat--message--bot--background:#FFFFFF;
+  --chat--message--bot--color:#14201A;
+  --chat--message--bot--border:1px solid rgba(20,32,26,.13);
+  --chat--message--user--background:#24382D;
+  --chat--message--user--color:#F7F4EE;
+  --chat--message--user--border:none;
+  --chat--color-typing:#8CA894;
+
+  --chat--input--container--background:#FFFFFF;
+  --chat--input--container--border:1px solid rgba(20,32,26,.13);
+  --chat--input--background:#FFFFFF;
+  --chat--input--text-color:#14201A;
+  --chat--input--border:1px solid rgba(20,32,26,.13);
+  --chat--input--border-active:1px solid #24382D;
+  --chat--input--send--button--background:transparent;
+  --chat--input--send--button--color:#24382D;
+  --chat--input--send--button--color-hover:#31513E;
+
+  --chat--toggle--background:#24382D;
+  --chat--toggle--hover--background:#31513E;
+  --chat--toggle--active--background:#14201A;
+  --chat--toggle--color:#F7F4EE;
+  --chat--toggle--size:56px;
+}
+#n8n-chat .chat-heading h1{
+  font-family:var(--display); font-weight:400; font-size:1.6rem; letter-spacing:-.01em;
+}
+#n8n-chat .chat-header p{color:var(--blush-2); font-size:.8125rem}
+#n8n-chat .chat-inputs textarea::placeholder{color:#6B786F}
+#n8n-chat .chat-window{box-shadow:0 24px 64px rgba(20,32,26,.22)}
+#n8n-chat .chat-window-toggle{box-shadow:0 8px 28px rgba(36,56,45,.35)}
+#n8n-chat .chat-powered-by a{color:#6B786F}
